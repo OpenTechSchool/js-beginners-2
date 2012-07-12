@@ -113,19 +113,21 @@ HTML content look the way <em>we</em> want.</p>
 <p>Here is one of the rules in CSS:</p>
 
 <pre>
-p {
+p.intro {
   margin: 0;
-  padding: 10px;
+  padding: 20px;
   background-color: lightgrey;
-  line-height: 1.3em;
+  font-size: 20px;
+  line-height: 1.3;
 }
 </pre>
 
-<p>This rule says "paragraphs have no space around them, space inside
-of 10 pixels on all sides, with a light grey background, and the lines
-should have a height of 1.3 times the height of the font."</p>
+<p>This rule says "intro paragraphs have no space around them, space
+inside of 20 pixels on all sides, with a light grey background. The
+text in them has a size of 20 pixels tall, and lines have a height of
+1.3 times the height of the text."</p>
 
-<p>When two different rules refere to the same content, both rules are
+<p>When two different rules refer to the same content, both rules are
 applied, but the one that comes second wins any arguments.</p>
 
 <pre>
