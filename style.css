@@ -39,6 +39,10 @@ pre {
   padding-left: 20px;
 }
 
+p {
+  padding-right: 10px;
+}
+
 aside {
   font-style: italic;
   color: #999;

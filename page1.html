@@ -1,0 +1,159 @@
+<!doctype html>
+
+<head>
+  <title>Curriculum — page 1</title>
+  <link rel=stylesheet href="http://fonts.googleapis.com/css?family=Averia+Serif+Libre:300,400">
+  <link rel=stylesheet href=style.css>
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+</head>
+
+<h1>Curriculum: page 1, HTML &amp; CSS</h1>
+
+<p>We'll learn how web pages are structured, and how to change the
+appearance of the content.</p>
+
+
+<h2 class="step">View the source</h2>
+
+<h3 class=goal>Goal</h3>
+
+<p>Understand how content for the web looks as raw HTML.</p>
+
+<h3 class=inst>Instructions</h3>
+
+<p>View the source of this page. One way to do that is to right click
+anywhere within the browser display window, and choose
+'View Page Source'.</p>
+
+<p>You will see the source HTML for this page. Read it.</p>
+
+<!-- This is a comment. It is not displayed. -->
+
+<h3 class=ex>Explanation</h3>
+
+<p>Web pages are written in plain text with no styling. So, no bold or
+italics, colors, fonts or layout.</p>
+
+<p>The text in angle brackets (<em>tags</em>) provides meta
+information about the content structure. P stands for paragraph, for
+example. We put our content between pairs of tags to define what the
+content is, and to determines how the text will appear.</p>
+
+<p>There are start tags such as <code>&lt;p></code> and ends tags like
+<code>&lt;/p></code>. Some tags that don't wrap around anything else
+and are called <em>empty elements</em>. For example, to include an
+image we use the <code>&lt;img></code> tag plus a <code>src</code>
+attribute to indicate the address of the image file.</p>
+
+<img src=http://amish-geeks.de/Khark/lolcat.jpg>
+
+<p>This page also has a <code>&lt;head></code> section where meta data
+about the entire page is defined. You'll see that's how the browser
+knows what the title of the page is, but you'll also see this
+line:</p>
+
+<pre>&lt;link rel=stylesheet href=style.css></pre>
+
+<p>This line says that an external 'style sheet' should be applied. A
+style sheet is the place we can define the appearance of our HTML.
+Let's pretend we didn't see that for a moment.</p>
+
+
+<h2 class="step">View HTML that has no style sheet.</h2>
+
+<h3 class=goal>Goal</h3>
+
+<p>Understand that HTML has meaning even before we define the
+appearance.</p>
+
+<h3 class=inst>Instructions</h3>
+
+<p>Open the <a href="nocss.html" target="_blank">example page</a>
+that has no style sheet.</p>
+
+<p>View the source of the example page. Read it.</p>
+
+<h3 class=ex>Explanation</h3>
+
+<p>No where in this HTML page have we said how big to make the
+heading, that text in <code>&lt;strong></code> tags should be bold,
+that <code>&lt;em></code> should be italic, that there should be space
+above and below <code>&lt;p></code> tags.</p>
+
+<p>These tags have <em>meaning</em> and so the browser displays the
+content in a style that makes sense to most humans that read it.
+That's kind, but wouldn't it be great to to be able to choose what
+font, what color, what position, and well, LOTS of things about the
+appearance? We can do that! We can do that in a style sheet.</p>
+
+
+<h2 class="step">View HTML that has style sheets</h2>
+
+<h3 class=goal>Goal</h3>
+
+<p>Understand how to set the appearance of content on web pages.</p>
+
+<h3 class=inst>Instructions</h3>
+
+<p>Open the <a href="hascss.html" target="_blank">example page</a>
+that has style sheets.</p>
+
+<p>View the source of the example page. Read it.</p>
+
+<p>Open the <a href="style.css">external style sheet</a> of the
+example page. Read it.</p>
+
+<h3 class=ex>Explanation</h3>
+
+<p>Style sheets are a collection of 'rules'. Each rule says which
+content the rule applies to and how that content ought to look. The
+language we write these rules in is 'CSS'. CSS is how to make our
+HTML content look the way <em>we</em> want.</p>
+
+<p>Here is one of the rules in CSS:</p>
+
+<pre>
+p {
+  margin: 0;
+  padding: 10px;
+  background-color: lightgrey;
+  line-height: 1.3em;
+}
+</pre>
+
+<p>This rule says "paragraphs have no space around them, space inside
+of 10 pixels on all sides, with a light grey background, and the lines
+should have a height of 1.3 times the height of the font."</p>
+
+<p>When two different rules refere to the same content, both rules are
+applied, but the one that comes second wins any arguments.</p>
+
+<pre>
+em {
+  font-style: normal;
+  background-color: orange;
+}
+em {
+  background-color: pink;
+}
+</pre>
+
+<p>The first rule says that everything in an <code>&lt;em></code> tags
+should be normal (instead of italic, which is usual), and have an
+orange background, like <em style="font-style: normal;
+background-color: orange;">this</em>. But the second rule says nothing
+about font style, thought says the background should be pink. That
+looks like <em style="background-color: pink;">this</em>.</p>
+
+<p>When both rules are written in this order, the first one adds style
+but the second one wins for color, and the result looks like <em
+style="font-style: normal; background-color: pink;">this</em>.
+
+<h2>More JavaScript please!</h2>
+
+<p>There is a lot to learn about both HTML and CSS, but hopefully
+that's enough of an introduction will help us so we add our magic
+power: JavaScript!</p>
+
+
+<p><a href="page2.html">→ To the second page</a>.</p>
