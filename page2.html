@@ -35,6 +35,7 @@ directory called “images”</p>
 <br>The photos must:</p>
 
 <ul>
+  <li>Have file type of .jpg, .gif or .png</li>
   <li>Have a width of around 500 pixels.</li>
   <li>All have the same dimensions in pixels.</li>
   <li>All have the same orientation (all landscape, portrait, or
@@ -57,7 +58,88 @@ simlier, we want them to be not too big, and not odd sizes.</p>
 
 <p>Understand how to display static content by writing HTML.</p>
 
-<p>INSTRUCTIONS AND EXPLANATION</p>
+<h3 class=inst>Instructions</h3>
+
+<p>In a editor, open a new file.</p>
+
+<p>Save the file with the name “index.html” in your
+<code>slideshow</code> directory</p>
+
+<p>Add your photos to the HTML but adding three lines like this:</p>
+
+<pre>
+&lt;img src="images/FILE_NAME_OF_THE_FIRST_PHOTO">
+&lt;img src="images/FILE_NAME_OF_THE_SECOND_PHOTO">
+&lt;img src="images/FILE_NAME_OF_THE_THIRD_PHOTO">
+</pre>
+
+<p>You must use the complete file name which includes the file
+extension, which will be .jpg, .gif or .png.</p>
+
+<p>In Chrome, go to <code>File > Open File…</code>, find your
+slideshow/index.html file and open it.</p>
+
+<p>In your text editor, at the very top of the index.html file,
+before the <code>&lt;img></code> tags, add:</p>
+
+<pre>
+&lt;!doctype html>
+&lt;head>
+  &lt;title>I ♥ Coding&lt;/title>
+&lt;/head>
+</pre>
+
+<p>In Chrome, refresh the page, and take a look at the title of
+the tab.</p>
+
+<p>In your text editor, add another line to the head that sets the
+character set to UTF-8:</p>
+
+<pre>
+&lt;!doctype html>
+&lt;head>
+  &lt;title>I ♥ Coding&lt;/title>
+  <strong>&lt;meta charset='utf-8'></strong>
+&lt;/head>
+</pre>
+
+<p>In Chrome, refresh the page, and take another look at the title of
+the tab.</p>
+
+<h3 class=ex>Explanation</h3>
+
+<p>You've written some HTML and are looking at it in your browser!</p>
+
+<p>You've also added a title, and defined the character set so that
+UTF-8 characters are correctly displayed. (UTF-8 is important not just
+for hearts, but also for umlauts.)</p>
+
+<p>The first line, the <code>doctype</code> declaration is  important
+for a similar reason as setting the character set. This simple line
+tells the browser what exact flavor of HTML we have written, so the
+browser will treat it in a predictable way. Most HTML looks and
+behaves the same everywhere, but once we start applying CSS rules and
+using JavaScript, the doctype really matters. If we don't say what
+flavor, then the browser has to guess, and it may guess
+incorrectly.</p>
+
+<p>Even though our doctype looks very simple, is it very different
+from what the the recommended doctype looked like only a couple of
+years ago:</p>
+
+<pre>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+</pre>
+
+<p>Rejoice! You [should] never have to write that ugly thing!<p/>
+
+<aside>Nerdy detail: In Chrome, look at the address of the page. This
+address might seem unusual to you if you have never written HTML
+before. This web page is located on your computer. If you put this
+file on a web server, you could visit the file there, and the location
+would be a web address that starts with <code>http://</code> or
+<code>https:</code></aside>
 
 
 <h2 class="step">Create a film roll of your photos</h2>
