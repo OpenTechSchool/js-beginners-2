@@ -200,7 +200,7 @@ are defined in your <code>style.css</code> file.</p>
 
 <p>While selecting <code>&lt;div class="film-roll"></code>, access the
 value of the "left" attribute in the right column, and change the
-value from 0px to 50px. Then Try -50px. Try using the up and down
+value from 0px to 50px. Then try -50px. Try using the up and down
 arrows while changing the value of the left attribute.</p>
 
 <p>Refresh the page to reset all the styles.</p>
@@ -238,14 +238,76 @@ CSS using JavaScript. Ready to try?? Let's do it!</p>
 
 <!-- an illustration would help -->
 
-<h2 class="step">Create a reference to the film role</h2>
+<h2 class="step">Create a reference to the film roll</h2>
 
 <h3 class=goal>Goal</h3>
 
 <p>To see that you can create a reference an HTML element, and explore
 the element's properties in the console.</p>
 
+<h3 class=inst>Instructions</h3>
+
+<p>In your <code>index.html</code>, add the id "the-film-roll" to
+<code>&lt;div></code> with class film-roll:</p>
+
+<pre>
+&lt;div class="film-roll" <strong>id="the-film-roll"</strong>>
+</pre>
+
+<p>In the browser console, type:</p>
+
+<pre>
+var filmroll = document.getElementById('the-film-roll');
+</pre>
+
+<p>The type, one line at a time. Some lines may have an unexpected
+effect (or unexpectedly no effect).</p>
+
+<pre>
+filmroll.offsetLeft;
+filmroll.offsetLeft = -100;
+filmroll.offsetLeft;
+filmroll.style.left = '-100px';
+filmroll.offsetLeft;
+filmroll.style.top = '50px';
+</pre>
+
+<p>Try moving <code>filmroll</code> 700 pixels <em>toward</em> the
+left.</p>
+
+<p>Try setting other style properties to other values.</p>
+
+<h3 class=ex>Explanation</h3>
+
+<p>When JavaScript runs in the browser, the browser creates an
+"environment variable" called "document", which has many useful
+properties that we can use to access elements on the page. We can use
+the <code>getElementById</code> method to get a reference to the
+element with an ID of our choosing.</p>
+
+<p>Here, we added an ID to the film roll element, and then used that
+ID to create a reference that we could control with JavaScript.</p>
+
+<p>Once we have a reference to the div with id "the-film-roll", we can
+access its properties too! Some of them (like <code>offsetLeft</code>)
+are <em>read only</em>, meaning we can't change the value. Some
+(maybe you found some) can be changed. Other properties, like
+<code>style</code> have properties themselves.</p>
+
+<p>The <code>style</code> property allows us to control the CSS
+attributes on an element. Therefore, but creating references to an
+element (and HTML element) we can change its appearance and position
+(by setting its CSS attributes).</p>
+
+
+<h2 class="step">Create convenience functions</h2>
+
+<h3 class=goal>Goal</h3>
+
+<p>To simplify the action of setting a style attribute.</p>
+
 <p>INSTRUCTIONS AND EXPLANATION</p>
+
 
 
 <h2 class="step">Create a scroll function</h2>
