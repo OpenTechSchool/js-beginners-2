@@ -264,6 +264,7 @@ var filmroll = document.getElementById('the-film-roll');
 effect (or unexpectedly no effect).</p>
 
 <pre>
+filmroll;
 filmroll.offsetLeft;
 filmroll.offsetLeft = -100;
 filmroll.offsetLeft;
@@ -276,6 +277,14 @@ filmroll.style.top = '50px';
 left.</p>
 
 <p>Try setting other style properties to other values.</p>
+
+<p>Refresh the page. Type the following in the console:</p>
+
+<pre>
+filmroll.style.left = '-100px';
+</pre>
+
+<p>What happened to our friend <code>filmroll</code>?</p>
 
 <h3 class=ex>Explanation</h3>
 
@@ -299,15 +308,65 @@ attributes on an element. Therefore, but creating references to an
 element (and HTML element) we can change its appearance and position
 (by setting its CSS attributes).</p>
 
+<p>The moment we refresh the page, we get a whole new environment and
+and of the variable we created are gone. How can we create variables
+with typing them in the console? There must be a way!</p>
+
 
 <h2 class="step">Create convenience functions</h2>
 
 <h3 class=goal>Goal</h3>
 
-<p>To simplify the action of setting a style attribute.</p>
+<p>To see how to set up a JavaScript environment, and to see how to
+simplify the action of setting a style attribute.</p>
 
-<p>INSTRUCTIONS AND EXPLANATION</p>
+<h3 class=inst>Instructions</h3>
 
+<p>In your editor, create a new file and save it with the name
+"slideshow.js" in your <code>slideshow</code> directory.</p>
+
+<p>In your <code>slideshow.js</code>, add the line that creates a
+reference to film roll:</p>
+
+<pre>
+var filmroll = document.getElementById('the-film-roll');
+</pre>
+
+<p>In your <code>index.js</code>, include this new file at the very
+<strong>end</strong>:</p>
+
+<pre>
+&lt;script src="slideshow.js">&lt;/script>
+</pre>
+
+<p>Back in the browser, refresh the page. Type the following in the
+console:</p>
+
+<pre>
+filmroll.style.left = '-100px';
+</pre>
+
+<p>In your <code>slideshow.js</code>, create a function that accepts
+an element, and a number of pixels, sets the left style attribute on
+the element:</p>
+
+<pre>
+function setLeftPosition(element, pixels) {
+  element.style.left = pixels + 'px';
+}
+</pre>
+
+<p>Back in the browser, refresh the page.</p>
+
+<p>Try our your new function:</p>
+
+<pre>
+setLeftPosition(filmroll, -200);
+</pre>
+
+<h3 class=ex>Explanation</h3>
+
+<p>EXPLANATION</p>
 
 
 <h2 class="step">Create a scroll function</h2>
