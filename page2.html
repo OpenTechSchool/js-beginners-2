@@ -73,8 +73,8 @@ simlier, we want them to be not too big, and not odd sizes.</p>
 <p>You must use the complete file name which includes the file
 extension, which will be .jpg, .gif or .png.</p>
 
-<p>In Chrome, go to <code>File > Open File…</code>, find your
-slideshow/index.html file and open it.</p>
+<p>In Chrome, go to <code>File</code> ▸ <code>Open File…</code>, find
+your slideshow/index.html file and open it.</p>
 
 <p>In your text editor, at the very top of the index.html file,
 before the <code>&lt;img></code> tags, add:</p>
@@ -123,17 +123,116 @@ browser will treat it in a predictable way.</p>
 
 <p>To see that CSS can be used to position content.</p>
 
-<p>Sub steps:</p>
+<h3 class=inst>Instructions</h3>
 
-<ul>
-  <li>2-put-images-in-frame</li>
-  <li>3-force-frame-to-show-one</li>
-  <li>4-put-images-in-a-row</li>
-  <li>5-scrolling-the-film</li>
-</ul>
+<p>In your editor, create a new file and save it with the name
+"style.css" in your <code>slideshow</code> directory.</p>
 
-<p>GOAL, INSTRUCTIONS AND EXPLANATION for each</p>
+<p>In your <code>style.css</code>, add these CSS rules:</p>
 
+<pre>
+.picture-frame {
+  height: 344px; /* height of one image */
+  width: 500px;  /* width of one image */
+  overflow: hidden;
+  margin: 50px auto;
+  position: relative;
+}
+
+.filmroll {
+  width: 1500px; /* 3 times width of one image */
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+img {
+  float: left;
+}
+</pre>
+
+<p>Change the height and width values to match the height and width
+in pixels of your photos. There are three values you must change.</p>
+
+<p>Update your <code>index.html</code> file by adding a link to the
+"style.css" stylesheet in the head, and by wrapping your
+<code>&lt;img></code> tags in two <code>&lt;div></code> containers
+with classes "picture-frame" and "film-roll":</p>
+
+<pre>
+&lt;!doctype html>
+&lt;head>
+  &lt;title>I ♥ Coding&lt;/title>
+  &lt;meta charset='utf-8'>
+  <strong>&lt;link rel="stylesheet" href="style.css" /></strong>
+&lt;/head>
+
+<strong>&lt;div class="picture-frame"></strong>
+<strong>  &lt;div class="film-roll"></strong>
+    &lt;img src="…" />
+    &lt;img src="…" />
+    &lt;img src="…" />
+<strong>  &lt;/div></strong>
+<strong>&lt;/div></strong>
+</pre>
+
+<p>In Chrome, refresh the page.</p>
+
+<p>In Chrome, open the console.</p>
+
+<aside>
+  <p>Yesterday we saw how to access the console:</p>
+
+  <p>In Chrome, press Ctrl+Shift+I on Windows or Linux, press
+  Command+Option+J on OS X. You can also go to the wrench menu in the
+  upper right corner of your window, and select <code>Tools</code> ▸
+  <code>Developer Tools</code>.</p>
+</aside>
+
+<p>In the console, go the the left-most tab called "Elements". Click
+on the arrows (▸) to look inside the
+<code>&lt;body>…&lt;/body></code>. Keep exploring until you find your
+<code>&lt;img></code> tags. It will look almost like this:</p>
+
+<img src="inspecting-film-roll.png" class="figure">
+
+<p>While selecting <code>&lt;div class="film-roll"></code>, change the
+value of the "left" attribute to 50px. Try -50px. Try using the up and
+down arrows while changing the value of the left attribute.</p>
+
+<p>Refresh the page.</p>
+
+<p>Play with more CSS values of other rules on other elements. Turn
+them on and off. What does each attribute do?</p>
+
+<h3 class=ex>Explanation</h3>
+
+<p>Earlier, we saw that a CSS rule that looked like
+<code>p { … }</code> targeted paragraphs. Rules that start with a dot,
+like <code>.class-name { … }</code>, target elements with
+<code>class-name</code> as their class attribute.</p>
+
+<p>By using class names, we can control two <code>&lt;div></code> tags
+in completely different ways, and we can use this control to now we
+can see that CSS can also control position.</p>
+
+<p>Using this technique. we have create a "picture frame" that is
+centered in the page, and has a height and width that exactly matches
+our photo size. (<code>overflow: hidden</code> is needed because
+otherwise, the contents that go outside of the frame would still be
+visible.)</p>
+
+<!-- an illustration would help -->
+
+<p>Inside of the picture frame, we created "film roll" that is a long
+strip of all our photos. By changing the position of the film roll, we
+can make our photos slide back and forth inside the picture frame.</p>
+
+<p>We can adjust the CSS in the stylesheet, and we can adjust the CSS
+by hand in the Developer Tools, but (so exciting!) we also adjust the
+CSS using JavaScript. Ready to try?? Let's do it!</p>
+
+<!-- an illustration would help -->
 
 <h2 class="step">Create a reference to the film role</h2>
 

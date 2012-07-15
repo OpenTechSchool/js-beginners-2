@@ -48,3 +48,8 @@ aside {
   color: #999;
   padding-right: 10px;
 }
+
+img.figure {
+  border: 1px solid #999;
+  max-width: 95%;
+}
