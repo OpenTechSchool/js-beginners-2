@@ -531,9 +531,56 @@ from any starting position to and ending position. Yay!</p>
 
 <p>To see that we can give control of the slide show to the user.</p>
 
-<p>(this is steps 11, 12 and 13 combined)</p>
+<h3 class=inst>Instructions</h3>
 
-<p>INSTRUCTIONS AND EXPLANATION</p>
+<p>
+  Add this to slideshow.js.
+  Refresh.
+  Play in console.
+  What are left and right?
+</p>
+
+<pre>
+document.addEventListener('keydown', function (e) {
+  console.log(e.keyCode);
+});
+</pre>
+
+<p>
+  if left, scroll left.
+  if right, scroll right.
+</p>
+
+<pre>
+var width = 500;
+document.addEventListener('keydown', function (e) {
+  if (e.keyCode == 39)
+    scroll(0, 500);
+
+  if (e.keyCode == 37)
+    scroll(500, 0);
+});
+</pre>
+
+<p>
+  Store and use current position.
+  if right, scroll right.
+</p>
+
+<pre>
+var curr = 0;
+var width = 500;
+
+document.addEventListener('keydown', function (e) {
+  if (e.keyCode == 39)
+    scroll(curr, curr += width);
+
+  if (e.keyCode == 37)
+    scroll(curr, curr -= width);
+});
+</pre>
+
+<p>EXPLANATION</p>
 
 
 <h2 class="step">Correct buggy behaviour</h2>
@@ -545,6 +592,7 @@ desirable.</p>
 
 <p>(First step will be to notice the bug and think of what's
 causing it)</p>
+
 
 <p>INSTRUCTIONS AND EXPLANATION</p>
 
