@@ -313,12 +313,11 @@ and of the variable we created are gone. How can we create variables
 with typing them in the console? There must be a way!</p>
 
 
-<h2 class="step">Create convenience functions</h2>
+<h2 class="step">Including a JavaScript file</h2>
 
 <h3 class=goal>Goal</h3>
 
-<p>To see how to set up a JavaScript environment, and to see how to
-simplify the action of setting a style attribute.</p>
+<p>To see how to set up a JavaScript environment.</p>
 
 <h3 class=inst>Instructions</h3>
 
@@ -346,46 +345,177 @@ console:</p>
 filmroll.style.left = '-100px';
 </pre>
 
-<p>In your <code>slideshow.js</code>, create a function that accepts
-an element, and a number of pixels, sets the left style attribute on
-the element:</p>
-
-<pre>
-function setLeftPosition(element, pixels) {
-  element.style.left = pixels + 'px';
-}
-</pre>
-
-<p>Back in the browser, refresh the page.</p>
-
-<p>Try our your new function:</p>
-
-<pre>
-setLeftPosition(filmroll, -200);
-</pre>
 
 <h3 class=ex>Explanation</h3>
 
-<p>EXPLANATION</p>
+<p>Whoa! Just like images and style sheets, you can load JavaScript
+code when you load a web page. Instead of typing by hand on the
+console, we can prepare a program, and send it along with the HTML,
+CSS or images. Nice!</p>
+
+
+<h2 class="step">Create a function to move the film roll</h2>
+
+<h3 class=goal>Goal</h3>
+
+<p>To use setInterval to create a simple animation.</p>
+
+<h3 class=inst>Instructions</h3>
+
+<p>Yesterday we saw that <code>setInterval</code> could be used to run
+a function every n milliseconds. We can also stop the function using
+<code>clearInterval</code>. Update your <code>slideshow.js</code>
+file to contain this code, and then refresh the browser:</p>
+
+<pre>
+var filmroll = document.getElementById('the-film-roll');
+var start = 0;
+var end = 200;
+var current = start;
+
+function move() {
+  filmroll.style.left = current + 'px';
+  current = current + 1;
+  if (current > end)
+    clearInterval(loop); // This stops the loop
+}
+
+var loop = setInterval(move, 40);
+</pre>
+
+<p>Why can't we use a <code>for</code> or <code>while</code> for this
+effect?</p>
+
+<p>Try to speed up the scrolling effect. There are two ways. Which one
+works better?</p>
+
+<p>Update the <code>move</code> function to move the film roll 20
+pixels every 50 milliseconds.<p>
+
+<p>What if you want to move exactly 110 pixels? Update your function
+so that it goes to exactly the end and not more.<p>
+
+<p>Tip: <code>Math.min</code> is function that take any number of
+arguments, and returns the one that is smallest. Try this:<p>
+
+<pre>
+current = Math.min(current + 20, end);
+</pre>
+
+<p>Make the photos scroll to the left instead of right.</p>
+
+<p>How much do you have to move the film roll to make it scroll from
+the first photo to the second photo?</p>
+
+<p>What happens if your photo width is not a multiple of 20? How can
+you fix the problem?<p>
+
+<p>Update the <code>move</code> function so that the direction of
+scrolling is only controlled by changing the start and end values.</p>
+
+<h3 class=ex>Explanation</h3>
+
+<p>To control how fast or slow a loop is performed, we can change the
+time between loops, or we can change how big an effect each loop
+has.</p>
+
+<p>We used to use <code>setInterval</code> instead of a
+<code>while</code> (of <code>for</code>) loop so we could add time
+between the loops instead of doing many thousands and thousands of
+loops.</p>
+
+<p>In the end, your function might look something like this:</p>
+
+<pre>
+var move = function () {
+  filmroll.style.left = current + 'px';
+
+  if (current == end)
+    clearInterval(loop);
+
+  if (end > start) {
+    current = Math.min(current + 20, end);
+  } else {
+    current = Math.max(current - 20, end);
+  }
+}
+</pre>
+
+<p>By using the <code>Math.min</code> and <code>Max.max</code>
+functions, we can guarantee that the <code>current</code> value never
+goes beyond the <code>end</code> (either bigger or smaller, depending
+on direction)</p>
 
 
 <h2 class="step">Create a scroll function</h2>
 
 <h3 class=goal>Goal</h3>
 
-<p>To introduce setInterval, and how it can be used to create a simple
-animations.</p>
+<p>Create a re-usable scroll function that can be called multiple
+times.</p>
 
-<p>INSTRUCTIONS AND EXPLANATION</p>
+<h3 class=inst>Instructions</h3>
+
+<p>Instead of declaring start and end</p>
+
+<p>Create a function called "scroll" that accepts a start position,
+and an end position.</p>
+
+<pre>
+function scroll(start, end) {
+  // now what?
+}
+</pre>
+
+<p>Move the <code>current</code> counter, your <code>move</code>
+function and <code>setInterval</code> inside of <code>scroll<scroll>.
+You no longer need to define a start and end variable. Your
+<code>slideshow.js</code> file will look like this:</p>
+
+<pre>
+var filmroll = document.getElementById('the-film-roll');
+
+function scroll(start, end) {
+  var current = start;
+
+  var move = function () {
+    filmroll.style.left = current + 'px';
+
+    if (current == end)
+      clearInterval(loop);
+
+    if (end > start) {
+      current = Math.min(current + 20, end);
+    } else {
+      current = Math.max(current - 20, end);
+    }
+  }
+
+  var loop = setInterval(move, 50);
+}
+</pre>
+
+<p>Refresh the browser.</p>
+
+<p>Use the scroll function to slide to the second photo by typing in
+the console type:</p>
+
+<pre>
+scroll(0, -500);
+</pre>
+
+<p>(but replace 500 with the width of one of your photos)</p>
+
+<p>Use the scroll function to slide from the second photo to the
+third.</p>
+
+<p>Scroll back to the second.</p>
 
 
-<h2 class="step">Extend the scroll function</h2>
+<h3 class=ex>Explanation</h3>
 
-<h3 class=goal>Goal</h3>
-
-<p>(Maybe this is all part of the previous step)</p>
-
-<p>INSTRUCTIONS AND EXPLANATION</p>
+<p>Now we have a single function we can use to scroll left and right
+from any starting position to and ending position. Yay!</p>
 
 
 <h2 class="step">Add a keydown event listener</h2>
@@ -413,7 +543,7 @@ animations.</p>
 <h3 class=goal>Goal</h3>
 
 <p>To see how to prevent events from having an effect when it's not
-desireable.</p>
+desirable.</p>
 
 <p>(First step will be to notice the bug and think of what's
 causing it)</p>
