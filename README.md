@@ -5,10 +5,10 @@ The purpose of the example slideshow is to introduce the following concepts:
 * using the web inspector to alter CSS
 * using JS to change the style of HTML elements
 * adding event listeners to the document
+* using JS to edit HTML of elements in the document
 
 This example could be extended to illustrate:
 
-* using JS to create HTML elements within the document (building the slideshow from an array of src paths)
 * adding event listeners to elements (clicking on navigation, rather than using arrow keys)
 * how to make the scrolling loop back to the start
 * the power of CSS to alter appearance
