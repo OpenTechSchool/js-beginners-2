@@ -546,15 +546,20 @@ output that is logged in the console.</p>
 <p>What are the <code>keyCode</code>s for the left and right arrow
 keys?</p>
 
-<p>Update the <code>handleEvent</code> function to scroll left
-and right when the left and right arrows are pressed:</p>
+<p>Update the <code>handleEvent</code> function to call a function
+that scrolls left or right when the left or right arrow is
+pressed:</p>
 
 <pre>
 function handleEvent(e) {
-  if (e.keyCode == 37)
+  backAndForth(e.keyCode);
+}
+
+function backAndForth(keyCode) {
+  if (keyCode == 37)
     scroll(500, 0);
 
-  if (e.keyCode == 39)
+  if (keyCode == 39)
     scroll(0, 500);
 }
 </pre>
@@ -577,20 +582,18 @@ position when you call the <code>scroll</code> function.</p>
 <pre>
 var current = 0;
 
-function handleEvent(e) {
-  if (e.keyCode == 37) {
+function backAndForth(keyCode) {
+  if (keyCode == 37) {
     scroll(current, current - 500);
     current = current - 500;
   }
 
-  if (e.keyCode == 39) {
+  if (keyCode == 39) {
     scroll(current, current + 500);
     current = current + 500;
   }
 }
 </pre>
-
-
 
 <p>The operator <code>+=</code> first adds the value on its right to
 the value of the variable on its left, updates the variable to the
@@ -612,7 +615,7 @@ to <code>keydown</code> events emitted by the
 <code>document</code>.</p>
 
 <p>By listening to the events emitted, we can know when the person
-viewing the page has <em>interacted<em> with the page. We can look at
+viewing the page has <em>interacted</em> with the page. We can look at
 what the person did (what they typed, or what they clicked on) and
 then we can do something. In this example, we moved the film roll to
 the left when the person pressed "Left" and we moved it right when the
@@ -628,15 +631,73 @@ we can allow the person to control the page.</p>
 
 <h3 class=goal>Goal</h3>
 
-<p>To see how to prevent events from having an effect when it's not
+<p>To see how to prevent events from having an effect when it is not
 desirable.</p>
 
-<p>(First step will be to notice the bug and think of what's
-causing it)</p>
+<h3 class=inst>Instructions</h3>
 
+<p>Our functions for listening to events and scrolling have bug in
+them. Maybe you already noticed it. To recreate the bug, try pressing
+the left and right arrows faster than the film roll can slide. (So,
+start the film roll sliding, and then press either left or right again
+before it is finished sliding). You'll see an ugly flickering effect.
 
-<p>INSTRUCTIONS AND EXPLANATION</p>
+<p>Do you know what is causing it? What can we do to stop it?</p>
 
+<p>Try to fix this bug.</p>
+
+<h3 class=ex>Explanation</h3>
+
+<p>Lots of times when we write code, we forget that our users might do
+things that don't "make sense" at first, or will try to do things we
+didn't think of. Oops. We think our job is done, but then we find out
+our code has a bug and we have to correct it (or tell the users "Don't
+do that!" which is sort of rude).</p>
+
+<p>First we have to figure out that the bug exists. Then we have to
+figure out why the bug is happening. Then we have to figure out how to
+fix it. Lots of programmers think fixing bugs is fun :), since they
+are new puzzles to solve.</p>
+
+<p>Did you find a solution? This is one way to fix the bug:</p>
+
+<pre>
+<strong>var scrolling = false;</strong>
+
+function scroll(start, end) {
+  var current = start;
+
+  var move = function () {
+    filmroll.style.left = current + 'px';
+<strong>
+    if (current == end) {
+      clearInterval(loop);
+      scrolling = false;
+    }
+</strong>
+    if (end > start) {
+      current = Math.min(current + 20, end);
+    } else {
+      current = Math.max(current - 20, end);
+    }
+  }
+
+  var loop = setInterval(move, 50);
+  <strong>scrolling = true;</strong>
+}
+
+function handleEvent(e) {
+  <strong>if (!scrolling) {
+    backAndForth(e.keyCode);
+  }</strong>
+}
+</pre>
+
+<p>We created a variable that remembers whether or not we are already
+scrolling, and if we are, we ignore the keydown event from the
+user. Maybe this is not what the user expects. Maybe the user expects.
+What is reasonable for the user to expect? How can we change the code
+to do what the user expects?</p>
 
 
 <h2>Next!</h2>
