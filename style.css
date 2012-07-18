@@ -40,7 +40,15 @@ pre {
 }
 
 p {
-  padding-right: 10px;
+  padding-right: 40px;
+}
+
+code {
+  background-color: #EEE;
+  border: 1px solid #DDD;
+  padding: 0.2em;
+  font-size: 0.8em;
+  border-radius: 3px;
 }
 
 aside {

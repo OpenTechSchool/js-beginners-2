@@ -254,7 +254,7 @@ the element's properties in the console.</p>
 &lt;div class="film-roll" <strong>id="the-film-roll"</strong>>
 </pre>
 
-<p>In the browser console, type:</p>
+<p>Back in the Console tab of the Developer Tools, type:</p>
 
 <pre>
 var filmroll = document.getElementById('the-film-roll');
@@ -502,13 +502,12 @@ the console type:</p>
 scroll(0, -500);
 </pre>
 
-<p>(but replace 500 with the width of one of your photos)</p>
+<p>(… but replace 500 with the width of one of your photos.)</p>
 
 <p>Use the scroll function to slide from the second photo to the
 third.</p>
 
-<p>Scroll back to the second.</p>
-
+<p>Scroll back to the second photo.</p>
 
 <h3 class=ex>Explanation</h3>
 
@@ -524,54 +523,105 @@ from any starting position to and ending position. Yay!</p>
 
 <h3 class=inst>Instructions</h3>
 
-<p>
-  Add this to slideshow.js.
-  Refresh.
-  Play in console.
-  What are left and right?
-</p>
+<p>In <code>slideshow.js.</code>, add an "EventLister" called
+<code>handleEvent</code> to the <code>document</code> that triggers on
+a <code>keydown</code> event, like this:</p>
 
 <pre>
-document.addEventListener('keydown', function (e) {
-  console.log(e.keyCode);
-});
+function handleEvent(e) {
+  console.log(e, e.keyCode);
+}
+
+document.addEventListener('keydown', handleEvent);
 </pre>
 
-<p>
-  if left, scroll left.
-  if right, scroll right.
-</p>
+<p>In Chrome, be sure you have the Console tab open in the Developer
+Tools.</p>
+
+<p>Refresh the page.</p>
+
+<p>Beginning pressing any of the keys, and while you do, watch the
+output that is logged in the console.</p>
+
+<p>What are the <code>keyCode</code>s for the left and right arrow
+keys?</p>
+
+<p>Update the <code>handleEvent</code> function to scroll left
+and right when the left and right arrows are pressed:</p>
 
 <pre>
-var width = 500;
-document.addEventListener('keydown', function (e) {
-  if (e.keyCode == 39)
-    scroll(0, 500);
-
+function handleEvent(e) {
   if (e.keyCode == 37)
     scroll(500, 0);
-});
+
+  if (e.keyCode == 39)
+    scroll(0, 500);
+}
 </pre>
 
-<p>
-  Store and use current position.
-  if right, scroll right.
-</p>
+<p>(… but replace 500 with the width of one of your photos.)</p>
+
+<p>Try out this new functionality in Chrome. Remember to always
+refresh the page when you change your JavaScript code.</p>
+
+<p>Why doesn't it keep scrolling in the same direction when the press
+the same arrow?</p>
+
+<p>Store the current scrolling position in a variable, and after
+calling the <code>scroll</code> function, update the value of the
+current position. Always use the current position as the "start"
+position when you call the <code>scroll</code> function.</p>
+
+<p>Try it first! but if you need help, take a peek below:</p>
 
 <pre>
-var curr = 0;
-var width = 500;
+var current = 0;
 
-document.addEventListener('keydown', function (e) {
-  if (e.keyCode == 39)
-    scroll(curr, curr += width);
+function handleEvent(e) {
+  if (e.keyCode == 37) {
+    scroll(current, current - 500);
+    current = current - 500;
+  }
 
-  if (e.keyCode == 37)
-    scroll(curr, curr -= width);
-});
+  if (e.keyCode == 39) {
+    scroll(current, current + 500);
+    current = current + 500;
+  }
+}
 </pre>
 
-<p>EXPLANATION</p>
+
+
+<p>The operator <code>+=</code> first adds the value on its right to
+the value of the variable on its left, updates the variable to the
+sum, and returns the sum. (It's just shorthand for
+<code>a = a + b</code>.) The <code>-=</code> operator works the same
+for subtraction. Use these operators to reduce the lines in your
+<code>handleEvent</code>function. Does this notation makes sense to
+you? Do you like it? Why or why not?</p>
+
+<h3 class=ex>Explanation</h3>
+
+<p>When JavaScript runs in your browser (which is all the time, unless
+you shut off JavaScript), it is always "listening" to "events", like
+whether you type something, or move your mouse. These events have
+names like "keydown", "keyup", and "click", and are emitted by all
+kinds of elements in the <code>document</code>, and by the
+<code>document</code> itself. In this example, we are only listening
+to <code>keydown</code> events emitted by the
+<code>document</code>.</p>
+
+<p>By listening to the events emitted, we can know when the person
+viewing the page has <em>interacted<em> with the page. We can look at
+what the person did (what they typed, or what they clicked on) and
+then we can do something. In this example, we moved the film roll to
+the left when the person pressed "Left" and we moved it right when the
+person pressed "right".</p>
+
+<p>By listening to <em>input</em> from the person looking at the page,
+we can allow the person to control the page.</p>
+
+<p>Pretty cool! And very powerful.</p>
 
 
 <h2 class="step">Correct buggy behaviour</h2>
