@@ -17,7 +17,7 @@ to events.</p>
 could do it by adding more <code>&lt;img></code> tags to the HTML,
 which is not a bad idea.</p>
 
-<p>But we could be very clever, and use JavaScript to add images.
+<p>We could also be very clever, and use JavaScript to add images.
 We can add and delete and edit the content of the document, just like
 we can change the CSS.</p>
 
@@ -25,6 +25,62 @@ we can change the CSS.</p>
 web pages. But being clever <em>is</em> a fun way to learn. Plus,
 there are situations where editing the content using JavaScript is a
 good idea.</p>
+
+
+<h2 class="step">Add content to the document using JavaScript</h2>
+
+<h3 class=goal>Goal</h3>
+
+<p>See how to edit the content of the document with JavaScript DOM
+properties and methods.</p>
+
+<h3 class=inst>Instructions</h3>
+
+<p>Visit your slide show in Chrome, and open the console.</p>
+
+<p>Remember, since we have our <code>slideshow.js</code> running, we have a reference to the "file role" in the variable called <code>filmroll</code>. In the console, type:</p>
+
+<pre>
+filmroll.innerHTML
+</pre>
+
+<p>Is the <code>innerHTML</code> property of <code>filmroll</code> a <em>read-only</em> value? Find out by trying to set to to some other value:</p>
+
+<pre>
+filmroll.innerHTML = "Remember, strings need quotes."
+</pre>
+
+<p>You can also use numbers, and do math, it you wanted:</p>
+
+<pre>
+filmroll.innerHTML = 4 + 3 * 111 + 1000
+</pre>
+
+<p>Try it with a string of HTML:</p>
+
+<pre>
+filmroll.innerHTML = "&lt;h1>Whoa!&lt;/h1> &lt;p>Check it out.&lt;/p>"
+</pre>
+
+<p>We call add HTML to the HTML that is already there using the <code>+=</code> operation:</p>
+
+<pre>
+filmroll.innerHTML += "&lt;p>Yeah! Lots of potential.&lt;/p>"
+</pre>
+
+<p>Try this:</p>
+
+<pre>
+filmroll.innerHTML = "&lt;img src='http://tif.ca/hello.jpg'>"
+</pre>
+
+<h3 class=ex>Explanation</h3>
+
+<p>One of the easiest way to create content in a web page using JavaScript is to set the <code>innerHTML</code> of an element to something new. Since HTML is just text, you can set the <code>innerHTML</code> to any text and it is <em>rendered</em> by the browser as HTML.<p>
+
+<p>We can read the <code>innerHTML</code> of an element as well we write to it, which means we can add the new HTML to the existing <code>innerHTML</code> to add, rather than replace, content.</p>
+
+<p>This technique is not the only way to add content to the document, but for today, we will only use this one.</p>
 
 
 <h2 class="step">STEP TITLE</h2>
@@ -40,3 +96,5 @@ good idea.</p>
 <h3 class=ex>Explanation</h3>
 
 <p>EXPLANATION</p>
+
+
