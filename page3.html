@@ -1,203 +1,410 @@
 <!doctype html>
 
 <head>
-  <title>Curriculum — page 2</title>
+  <title>Curriculum — page 3</title>
   <link rel=stylesheet href="http://fonts.googleapis.com/css?family=Averia+Serif+Libre:300,400">
   <link rel=stylesheet href=style.css>
   <meta http-equiv=Content-Type content="text/html; charset=utf-8">
 </head>
 
-<h1>Curriculum: page 3, more pictures, please!</h1>
+<h1>Curriculum: page 3, moving pictures</h1>
 
-<p>We've seen how we can use JavaScript to move content around on the
-page by changing the CSS. We can even react to the user by listening
-to events.</p>
-
-<p>But what if you want to add more photos to you slide show? You
-could do it by adding more <code>&lt;img></code> tags to the HTML,
-which is not a bad idea.</p>
-
-<p>We could also be very clever, and use JavaScript to add images.
-We can add and delete and edit the content of the document, just like
-we can change the CSS.</p>
-
-</p>Using JavaScript just to be clever is not a good idea for “real”
-web pages. But being clever <em>is</em> a fun way to learn. Plus,
-there are situations where editing the content using JavaScript is a
-good idea.</p>
+<p>You've written your HTML and CSS. We got a taste of how to use
+JavaScript to move around the content. Now, we'll learn how to
+include your program when the HTML is loaded, so we can make the
+content dynamic and interactive. </p>
 
 
-<h2 class="step">Add content to the document using JavaScript</h2>
+<h2 class="step">Including a JavaScript file</h2>
 
 <h3 class=goal>Goal</h3>
 
-<p>See how to edit the content of the document with JavaScript DOM
-properties and methods.</p>
+<p>To see how to set up a JavaScript environment.</p>
 
 <h3 class=inst>Instructions</h3>
 
-<p>Visit your slide show in Chrome, and open the console.</p>
+<p>In your editor, create a new file and save it with the name
+“slideshow.js” in your <span class="filename">slideshow</span> directory.</p>
 
-<p>Remember, since we have our <span class="filename">slideshow.js</span> running, we
-have a reference to the "file role" in the variable called
-<code>filmroll</code>. In the console, type:</p>
+<p>In your <span class="filename">slideshow.js</span>, add the line that creates a
+reference to film roll:</p>
 
 <pre>
-filmroll.innerHTML
+var filmroll = document.getElementById('the-film-roll');
 </pre>
 
-<p>Is the <code>innerHTML</code> property of <code>filmroll</code> a
-<em>read-only</em> value? Find out by trying to set to to some other
-value:</p>
+<p>In your <code>index.js</code>, include this new file at the very
+<strong>end</strong>:</p>
 
 <pre>
-filmroll.innerHTML = "Remember, strings need quotes."
-</pre>
-
-<p>You can also use numbers, and do math, it you wanted:</p>
-
-<pre>
-filmroll.innerHTML = 4 + 3 * 111 + 1000
-</pre>
-
-<p>Try it with a string of HTML:</p>
-
-<pre>
-filmroll.innerHTML = "&lt;h1>Whoa!&lt;/h1> &lt;p>Check it out.&lt;/p>"
-</pre>
-
-<p>We call add HTML to the HTML that is already there using the
-<code>+=</code> operation:</p>
-
-<pre>
-filmroll.innerHTML += "&lt;p>Yeah! Lots of potential.&lt;/p>"
-</pre>
-
-<p>Try this:</p>
-
-<pre>
-var address = "http://tif.ca/hello.jpg";
-var html = "&lt;img src=" + address + ">"
-filmroll.innerHTML = html;
-</pre>
-
-<h3 class=ex>Explanation</h3>
-
-<p>One of the easiest way to create content in a web page using
-JavaScript is to set the <code>innerHTML</code> of an element to
-something new. Since HTML is just text, you can set the
-<code>innerHTML</code> to any text and it is <em>rendered</em> by the
-browser as HTML.<p>
-
-<p>We can read the <code>innerHTML</code> of an element as well we
-write to it, which means we can add the new HTML to the existing
-<code>innerHTML</code> to add, rather than replace, content.</p>
-
-<p>Because we can "add" strings of text together, we can also create
-  HTML, and then use it to set <code>innerHTML</code>.</p>
-
-<p>This technique is not the only way to add content to the document,
-but for today, we will only use this one.</p>
-
-
-<h2 class="step">Create the film roll HTML using JavaScript</h2>
-
-<h3 class=goal>Goal</h3>
-
-<p>To see how to build an HTML string from an array of values.</p>
-
-<h3 class=inst>Instructions</h3>
-
-<p>In <span class="filename">slideshow.js</span>, create an array
-called “photos”, and store the file names of your images:</p>
-
-<pre>
-var photos = [
-  "FILE_NAME_OF_THE_FIRST_PHOTO",
-  "FILE_NAME_OF_THE_SECOND_PHOTO",
-  "FILE_NAME_OF_THE_THIRD_PHOTO"
-];
-</pre>
-
-<p>Remember to use the complete file name including the file
-extension (.jpg, .gif or .png).</p>
-
-<p>Define a variable called “html” that is just an empty string:</p>
-
-<pre>
-var html = "";
-</pre>
-
-<p>In your <span class="filename">index.html</span>, delete all the image tags that are
-inside of your "film roll" <code>&lt;div></code> (the one with
-id="the-film-roll"). Your <span class="filename">index.html</span> will looks like this
-afterwards:</p>
-
-<pre>
-&lt;!doctype html>
-&lt;head>
-  &lt;title>I ♥ Coding&lt;/title>
-  &lt;meta charset='utf-8'>
-  &lt;link rel="stylesheet" href="style.css" />
-&lt;/head>
-
-&lt;div class="picture-frame">
-  &lt;div class="film-roll" id="the-film-roll">
-  &lt;/div>
-&lt;/div>
-
 &lt;script src="slideshow.js">&lt;/script>
 </pre>
 
-<p>Refresh the page in Chrome to prove to yourself that the images are
-really all gone.</p>
-
-<p>Back in <span class="filename">slideshow.js</span>, write a <code>for</code> loop
-that iterates over the items in the <code>photos</code> array, and
-each time adds another <code>&lt;img></code> tag the <code>html</code>
-string</p>
+<p>Back in the browser, refresh the page. Type the following in the
+console:</p>
 
 <pre>
-for (var i = 0; i &lt; photos.length; i++) {
-  html += "&lt;img>";
-}
+filmroll.style.left = '-100px';
 </pre>
 
-<p>Recall that the value stored a index <code>i</code> of the array
-<code>photos</code> is accessed like this
-<code>photos[i]</code></p>
-
-<p>Update the loop so that each time, the value stored in
-<code>photos[i]</code> is added as the <code>src</code> attribute:</p>
-
-<pre>
-for (var i = 0; i &lt; photos.length; i++) {
-  html += "&lt;img <strong>src=" + photos[i] + "</strong>>";
-}
-</pre>
-
-<p>Now set the <code>innerHTML</code> of <code>filmroll</code> to
-<code>html</code>:</p>
-
-<pre>
-filmroll.innerHTML = html;
-</pre>
-
-<p>Refresh the page in Chrome. Double check that scrolling still
-works.</p>
-
-<p>Now rearrange your photos: put the second photo first. Do this by
-changing their order in the <code>photos</code> array.</p>
 
 <h3 class=ex>Explanation</h3>
 
-<p>Pretty cool! We stored all the names of our images in an array, and
-then used the array to create HTML. By updating the
-<code>innerHTML</code> with the HTML we created, we added the photos
-to the page.</p>
+<p>Whoa! Just like images and style sheets, you can load JavaScript
+code when you load a web page. Instead of typing by hand on the
+console, we can prepare a program, and send it along with the HTML,
+CSS or images. Nice!</p>
 
-<p>Since we stored the file names in an array, we could easily change
-the order of the photos by changing the order of the array.
 
-<p>It would also be easy to just edit the HTML, but this is so much
-more clever, right?)<p>
+<h2 class="step">Create a function to move the film roll</h2>
+
+<h3 class=goal>Goal</h3>
+
+<p>To use setInterval to create a simple animation.</p>
+
+<h3 class=inst>Instructions</h3>
+
+<p>Yesterday we saw that <code>setInterval</code> could be used to run
+a function every n milliseconds. We can also stop the function using
+<code>clearInterval</code>. Update your <span class="filename">slideshow.js</span>
+file to contain this code, and then refresh the browser:</p>
+
+<pre>
+var filmroll = document.getElementById('the-film-roll');
+var start = 0;
+var end = 200;
+var current = start;
+
+function move() {
+  filmroll.style.left = current + 'px';
+  current = current + 1;
+  if (current > end)
+    clearInterval(loop); // This stops the loop
+}
+
+var loop = setInterval(move, 40);
+</pre>
+
+<p>Why can't we use a <code>for</code> or <code>while</code> for this
+effect?</p>
+
+<p>Try to speed up the scrolling effect. There are two ways. Which one
+works better?</p>
+
+<p>Update the <code>move</code> function to move the film roll 20
+pixels every 50 milliseconds.<p>
+
+<p>What if you want to move exactly 110 pixels? Update your function
+so that it goes to exactly the end and not more.<p>
+
+<p>Tip: <code>Math.min</code> is function that take any number of
+arguments, and returns the one that is smallest. Try this:<p>
+
+<pre>
+current = Math.min(current + 20, end);
+</pre>
+
+<p>Make the photos scroll to the left instead of right.</p>
+
+<p>How much do you have to move the film roll to make it scroll from
+the first photo to the second photo?</p>
+
+<p>What happens if your photo width is not a multiple of 20? How can
+you fix the problem?<p>
+
+<p>Update the <code>move</code> function so that the direction of
+scrolling is only controlled by changing the start and end values.</p>
+
+<h3 class=ex>Explanation</h3>
+
+<p>To control how fast or slow a loop is performed, we can change the
+time between loops, or we can change how big an effect each loop
+has.</p>
+
+<p>We used to use <code>setInterval</code> instead of a
+<code>while</code> (of <code>for</code>) loop so we could add time
+between the loops instead of doing many thousands and thousands of
+loops.</p>
+
+<p>In the end, your function might look something like this:</p>
+
+<pre>
+var move = function () {
+  filmroll.style.left = current + 'px';
+
+  if (current == end)
+    clearInterval(loop);
+
+  if (end > start) {
+    current = Math.min(current + 20, end);
+  } else {
+    current = Math.max(current - 20, end);
+  }
+}
+</pre>
+
+<p>By using the <code>Math.min</code> and <code>Max.max</code>
+functions, we can guarantee that the <code>current</code> value never
+goes beyond the <code>end</code> (either bigger or smaller, depending
+on direction)</p>
+
+
+<h2 class="step">Create a scroll function</h2>
+
+<h3 class=goal>Goal</h3>
+
+<p>Create a re-usable scroll function that can be called multiple
+times.</p>
+
+<h3 class=inst>Instructions</h3>
+
+<p>Create a function called “scroll” that accepts a start position,
+and an end position.</p>
+
+<pre>
+function scroll(start, end) {
+  // now what?
+}
+</pre>
+
+<p>Move the <code>current</code> counter, your <code>move</code>
+function and <code>setInterval</code> inside of <code>scroll</code>.
+You no longer need to define start and end variables. Your
+<span class="filename">slideshow.js</span> file will look like this:</p>
+
+<pre>
+var filmroll = document.getElementById('the-film-roll');
+
+function scroll(start, end) {
+  var current = start;
+
+  var move = function () {
+    filmroll.style.left = current + 'px';
+
+    if (current == end)
+      clearInterval(loop);
+
+    if (end > start) {
+      current = Math.min(current + 20, end);
+    } else {
+      current = Math.max(current - 20, end);
+    }
+  }
+
+  var loop = setInterval(move, 50);
+}
+</pre>
+
+<p>Refresh the browser.</p>
+
+<p>Use the scroll function to slide to the second photo by typing in
+the console type:</p>
+
+<pre>
+scroll(0, -500);
+</pre>
+
+<p>(… but replace 500 with the width of one of your photos.)</p>
+
+<p>Use the scroll function to slide from the second photo to the
+third.</p>
+
+<p>Scroll back to the second photo.</p>
+
+<h3 class=ex>Explanation</h3>
+
+<p>Now we have a single function we can use to scroll left and right
+from any starting position to and ending position. Yay!</p>
+
+
+<h2 class="step">Add a keydown event listener</h2>
+
+<h3 class=goal>Goal</h3>
+
+<p>To see that we can give control of the slide show to the user.</p>
+
+<h3 class=inst>Instructions</h3>
+
+<p>In <span class="filename">slideshow.js</span>, add an <em>EventLister</em> called
+<code>handleEvent</code> to the <code>document</code> that triggers on
+a <code>keydown</code> event, like this:</p>
+
+<pre>
+function handleEvent(e) {
+  console.log(e, e.keyCode);
+}
+
+document.addEventListener('keydown', handleEvent);
+</pre>
+
+<p>In Chrome, be sure you have the Console tab open in the Developer
+Tools.</p>
+
+<p>Refresh the page.</p>
+
+<p>Beginning pressing any of the keys, and while you do, watch the
+output that is logged in the console.</p>
+
+<p>What are the <code>keyCode</code>s for the left and right arrow
+keys?</p>
+
+<p>Update the <code>handleEvent</code> function to call a function
+that scrolls left or right when the left or right arrow is
+pressed:</p>
+
+<pre>
+function handleEvent(e) {
+  backAndForth(e.keyCode);
+}
+
+function backAndForth(keyCode) {
+  if (keyCode == 37)
+    scroll(500, 0);
+
+  if (keyCode == 39)
+    scroll(0, 500);
+}
+</pre>
+
+<p>(… but replace 500 with the width of one of your photos.)</p>
+
+<p>Try out this new functionality in Chrome. Remember to always
+refresh the page when you change your JavaScript code.</p>
+
+<p>Why doesn't it keep scrolling in the same direction when the press
+the same arrow?</p>
+
+<p>Store the current scrolling position in a variable, and after
+calling the <code>scroll</code> function, update the value of the
+current position. Always use the current position as the <code>start</code>
+value when you call the <code>scroll</code> function.</p>
+
+<p>Try it first! but if you need help, take a peek below:</p>
+
+<pre>
+var current = 0;
+
+function backAndForth(keyCode) {
+  if (keyCode == 37) {
+    scroll(current, current - 500);
+    current = current - 500;
+  }
+
+  if (keyCode == 39) {
+    scroll(current, current + 500);
+    current = current + 500;
+  }
+}
+</pre>
+
+<p>The operator <code>+=</code> first adds the value on its right to
+the value of the variable on its left, updates the variable to the
+sum, and returns the sum. (It's just shorthand for
+<code>a = a + b</code>.) The <code>-=</code> operator works the same
+for subtraction. Use these operators to reduce the lines in your
+<code>handleEvent</code>function. Does this notation makes sense to
+you? Do you like it? Why or why not?</p>
+
+<h3 class=ex>Explanation</h3>
+
+<p>When JavaScript runs in your browser (which is all the time, unless
+you shut off JavaScript), it is always “listening” to <em>events</em>, like
+whether you type something, or move your mouse. These events have
+names like “keydown”, “keyup”, and “click”, and are emitted by all
+kinds of elements in the <code>document</code>, and by the
+<code>document</code> itself. In this example, we are only listening
+to <code>keydown</code> events emitted by the
+<code>document</code>.</p>
+
+<p>By listening to the events emitted, we can know when the person
+viewing the page has <em>interacted</em> with the page. We can look at
+what the person did (what they typed, or what they clicked on) and
+then we can do something. In this example, we moved the film roll to
+the left when the person pressed “left” and we moved it right when the
+person pressed “right”.</p>
+
+<p>By listening to <em>input</em> from the person looking at the page,
+we can allow the person to control the page.</p>
+
+<p>Pretty cool! And very powerful.</p>
+
+
+<h2 class="step">Correct buggy behaviour</h2>
+
+<h3 class=goal>Goal</h3>
+
+<p>To see how to prevent events from having an effect when it is not
+desirable.</p>
+
+<h3 class=inst>Instructions</h3>
+
+<p>Our functions for listening to events and scrolling have a bug in
+them. Maybe you already noticed it. To recreate the bug, try pressing
+the left and right arrows faster than the film roll can slide. (So,
+start the film roll sliding, and then press either left or right again
+before it is finished sliding). You'll see an ugly flickering effect.
+
+<p>Do you know what is causing it? What can we do to stop it?</p>
+
+<p>Try to fix this bug.</p>
+
+<h3 class=ex>Explanation</h3>
+
+<p>Lots of times when we write code, we forget that our users might do
+things that don't “make sense” at first, or will try to do things we
+didn't think of. Oops. We think our job is done, but then we find out
+our code has a bug and we have to correct it (or tell the users “Don't
+do that!” which is sort of rude).</p>
+
+<p>First we have to figure out that the bug exists. Then we have to
+figure out why the bug is happening. Then we have to figure out how to
+fix it. Lots of programmers think fixing bugs is fun :), since they
+are new puzzles to solve.</p>
+
+<p>Did you find a solution? This is one way to fix the bug:</p>
+
+<pre>
+<strong>var scrolling = false;</strong>
+
+function scroll(start, end) {
+  var current = start;
+
+  var move = function () {
+    filmroll.style.left = current + 'px';
+<strong>
+    if (current == end) {
+      clearInterval(loop);
+      scrolling = false;
+    }
+</strong>
+    if (end > start) {
+      current = Math.min(current + 20, end);
+    } else {
+      current = Math.max(current - 20, end);
+    }
+  }
+
+  var loop = setInterval(move, 50);
+  <strong>scrolling = true;</strong>
+}
+
+function handleEvent(e) {
+  <strong>if (!scrolling) {
+    backAndForth(e.keyCode);
+  }</strong>
+}
+</pre>
+
+<p>We created a variable that remembers whether or not we are already
+scrolling, and if we are, we ignore the keydown event from the
+user. Maybe this is not what the user expects. What is reasonable for
+the user to expect? How can we change the code to do what the user
+expects?</p>
+
+
+<h2>Next!</h2>
+
+<p>Now that we've changed CSS, let's change the HTML too!</p>
+
+
+<p><a href="page4.html">→ To the fourth page</a>.</p>

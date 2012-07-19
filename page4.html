@@ -1,0 +1,203 @@
+<!doctype html>
+
+<head>
+  <title>Curriculum — page 4</title>
+  <link rel=stylesheet href="http://fonts.googleapis.com/css?family=Averia+Serif+Libre:300,400">
+  <link rel=stylesheet href=style.css>
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+</head>
+
+<h1>Curriculum: page 4, more dynamic, please!</h1>
+
+<p>We've seen how we can use JavaScript to move content around on the
+page by changing the CSS. We can even react to the user by listening
+to events.</p>
+
+<p>But what if you want to change the order of your photos in the
+slide show? You could do it be editing the <code>&lt;img></code> tags
+in the HTML, which is not a bad idea.</p>
+
+<p>We could also be very clever, and use JavaScript to rearrange
+the images. We can edit (including adding and deleting) the content
+of the document, just like we can change the CSS.</p>
+
+</p>Using JavaScript just to be clever is not a good idea for “real”
+web pages. But being clever <em>is</em> a fun way to learn. Plus,
+there are situations where editing the content using JavaScript is a
+good idea.</p>
+
+
+<h2 class="step">Edit content to the document using JavaScript</h2>
+
+<h3 class=goal>Goal</h3>
+
+<p>See how to edit the content of the document with JavaScript DOM
+properties and methods.</p>
+
+<h3 class=inst>Instructions</h3>
+
+<p>Visit your slide show in Chrome, and open the console.</p>
+
+<p>Remember, since we have our <span class="filename">slideshow.js</span> running, we
+have a reference to the "file role" in the variable called
+<code>filmroll</code>. In the console, type:</p>
+
+<pre>
+filmroll.innerHTML
+</pre>
+
+<p>Is the <code>innerHTML</code> property of <code>filmroll</code> a
+<em>read-only</em> value? Find out by trying to set to to some other
+value:</p>
+
+<pre>
+filmroll.innerHTML = "Remember, strings need quotes."
+</pre>
+
+<p>You can also use numbers, and do math, it you wanted:</p>
+
+<pre>
+filmroll.innerHTML = 4 + 3 * 111 + 1000
+</pre>
+
+<p>Try it with a string of HTML:</p>
+
+<pre>
+filmroll.innerHTML = "&lt;h1>Whoa!&lt;/h1> &lt;p>Check it out.&lt;/p>"
+</pre>
+
+<p>We call add HTML to the HTML that is already there using the
+<code>+=</code> operation:</p>
+
+<pre>
+filmroll.innerHTML += "&lt;p>Yeah! Lots of potential.&lt;/p>"
+</pre>
+
+<p>Try this:</p>
+
+<pre>
+var address = "http://tif.ca/hello.jpg";
+var html = "&lt;img src=" + address + ">"
+filmroll.innerHTML = html;
+</pre>
+
+<h3 class=ex>Explanation</h3>
+
+<p>One of the easiest way to create content in a web page using
+JavaScript is to set the <code>innerHTML</code> of an element to
+something new. Since HTML is just text, you can set the
+<code>innerHTML</code> to any text and it is <em>rendered</em> by the
+browser as HTML.<p>
+
+<p>We can read the <code>innerHTML</code> of an element as well we
+write to it, which means we can add the new HTML to the existing
+<code>innerHTML</code> to add, rather than replace, content.</p>
+
+<p>Because we can "add" strings of text together, we can also create
+  HTML, and then use it to set <code>innerHTML</code>.</p>
+
+<p>This technique is not the only way to add content to the document,
+but for today, we will only use this one.</p>
+
+
+<h2 class="step">Create the film roll HTML using JavaScript</h2>
+
+<h3 class=goal>Goal</h3>
+
+<p>To see how to build an HTML string from an array of values.</p>
+
+<h3 class=inst>Instructions</h3>
+
+<p>In <span class="filename">slideshow.js</span>, create an array
+called “photos”, and store the file names of your images:</p>
+
+<pre>
+var photos = [
+  "FILE_NAME_OF_THE_FIRST_PHOTO",
+  "FILE_NAME_OF_THE_SECOND_PHOTO",
+  "FILE_NAME_OF_THE_THIRD_PHOTO"
+];
+</pre>
+
+<p>Remember to use the complete file name including the file
+extension (.jpg, .gif or .png).</p>
+
+<p>Define a variable called “html” that is just an empty string:</p>
+
+<pre>
+var html = "";
+</pre>
+
+<p>In your <span class="filename">index.html</span>, delete all the image tags that are
+inside of your "film roll" <code>&lt;div></code> (the one with
+id="the-film-roll"). Your <span class="filename">index.html</span> will looks like this
+afterwards:</p>
+
+<pre>
+&lt;!doctype html>
+&lt;head>
+  &lt;title>I ♥ Coding&lt;/title>
+  &lt;meta charset='utf-8'>
+  &lt;link rel="stylesheet" href="style.css" />
+&lt;/head>
+
+&lt;div class="picture-frame">
+  &lt;div class="film-roll" id="the-film-roll">
+  &lt;/div>
+&lt;/div>
+
+&lt;script src="slideshow.js">&lt;/script>
+</pre>
+
+<p>Refresh the page in Chrome to prove to yourself that the images are
+really all gone.</p>
+
+<p>Back in <span class="filename">slideshow.js</span>, write a <code>for</code> loop
+that iterates over the items in the <code>photos</code> array, and
+each time adds another <code>&lt;img></code> tag the <code>html</code>
+string</p>
+
+<pre>
+for (var i = 0; i &lt; photos.length; i++) {
+  html += "&lt;img>";
+}
+</pre>
+
+<p>Recall that the value stored a index <code>i</code> of the array
+<code>photos</code> is accessed like this
+<code>photos[i]</code></p>
+
+<p>Update the loop so that each time, the value stored in
+<code>photos[i]</code> is added as the <code>src</code> attribute:</p>
+
+<pre>
+for (var i = 0; i &lt; photos.length; i++) {
+  html += "&lt;img <strong>src=" + photos[i] + "</strong>>";
+}
+</pre>
+
+<p>Now set the <code>innerHTML</code> of <code>filmroll</code> to
+<code>html</code>:</p>
+
+<pre>
+filmroll.innerHTML = html;
+</pre>
+
+<p>Refresh the page in Chrome. Double check that scrolling still
+works.</p>
+
+<p>Now rearrange your photos: put the second photo first. Do this by
+changing their order in the <code>photos</code> array.</p>
+
+<h3 class=ex>Explanation</h3>
+
+<p>Pretty cool! We stored all the names of our images in an array, and
+then used the array to create HTML. By updating the
+<code>innerHTML</code> with the HTML we created, we added the photos
+to the page.</p>
+
+<p>Since we stored the file names in an array, we could easily change
+the order of the photos by changing the order of the array.
+
+<p>It would also be easy to just edit the HTML, but this is so much
+more clever, right?)<p>
