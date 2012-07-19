@@ -2,14 +2,14 @@
 
 <head>
   <title>Curriculum — page 1</title>
-  <link rel=stylesheet href="http://fonts.googleapis.com/css?family=Averia+Serif+Libre:300,400">
-  <link rel=stylesheet href=style.css>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Averia+Serif+Libre:300,400">
+  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
 </head>
 
 <h1>Curriculum: page 1, HTML &amp; CSS</h1>
 
-<p>We'll learn how web pages are structured, and how to change the
+<p>We’ll learn how web pages are structured, and how to change the
 appearance of the content.</p>
 
 
@@ -42,7 +42,7 @@ example. We put our content between pairs of tags to define what the
 content is, and to determine how the text will appear.</p>
 
 <p>There are start tags such as <code>&lt;p></code> and ends tags like
-<code>&lt;/p></code>. Some tags don't wrap around anything else
+<code>&lt;/p></code>. Some tags don’t wrap around anything else
 and are called <em>empty elements</em>. For example, to include an
 image we use the <code>&lt;img></code> tag plus a <code>src</code>
 attribute to indicate the address of the image file.</p>
@@ -50,16 +50,15 @@ attribute to indicate the address of the image file.</p>
 <img src=http://amish-geeks.de/Khark/lolcat.jpg>
 
 <p>This page also has a <code>&lt;head></code> section where meta data
-about the entire page is defined. You'll see that's how the browser
-knows what the title of the page is, but you'll also see this
+about the entire page is defined. You’ll see that’s how the browser
+knows what the title of the page is, but you’ll also see this
 line:</p>
 
-<pre>&lt;link rel=stylesheet href=style.css></pre>
+<pre>&lt;link rel="stylesheet" href="style.css"></pre>
 
-<p>This line says that an external 'style sheet' should be applied. A
+<p>This line says that an external <em>style sheet</em> should be applied. A
 style sheet is the place where we can define the appearance of our HTML.
-Let's pretend we didn't see that for a moment.</p>
-
+Let’s pretend we didn’t see that for a moment.</p>
 
 <h2 class="step">View HTML that has no style sheet.</h2>
 
@@ -84,7 +83,7 @@ above and below <code>&lt;p></code> tags.</p>
 
 <p>These tags have <em>meaning</em> and so the browser displays the
 content in a style that makes sense to most humans that read it.
-That's kind, but wouldn't it be great to to be able to choose what
+That’s kind, but wouldn’t it be great to to be able to choose what
 font, what color, what position, and well, LOTS of things about the
 appearance? We can do that! We can do that in a style sheet.</p>
 
@@ -102,8 +101,8 @@ that has style sheets.</p>
 
 <p>View the source of the example page. Read it.</p>
 
-<p>Open the <a href="style.css">external style sheet</a> of the
-example page. Read it.</p>
+<p>Open the <a href="style.css" target="_blank">external style sheet</a>
+of the example page. Read it.</p>
 
 <h3 class=ex>Explanation</h3>
 
@@ -142,7 +141,7 @@ em {
 }
 </pre>
 
-<p>The first rule says that everything in an <code>&lt;em></code> tags
+<p>The first rule says that everything in <code>&lt;em></code> tags
 should be normal (instead of italic, which is usual), and have an
 orange background, like <em style="font-style: normal;
 background-color: orange;">this</em>. But the second rule says nothing
@@ -156,7 +155,7 @@ style="font-style: normal; background-color: pink;">this</em>.
 <h2>More JavaScript please!</h2>
 
 <p>There is a lot to learn about both HTML and CSS, but hopefully
-that's enough of an introduction will help us so we add our magic
+that’s enough of an introduction will help us so we add our magic
 power: JavaScript!</p>
 
 

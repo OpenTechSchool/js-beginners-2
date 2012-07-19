@@ -2,19 +2,19 @@
 
 <head>
   <title>Curriculum — page 4</title>
-  <link rel=stylesheet href="http://fonts.googleapis.com/css?family=Averia+Serif+Libre:300,400">
-  <link rel=stylesheet href=style.css>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Averia+Serif+Libre:300,400">
+  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
 </head>
 
 <h1>Curriculum: page 4, more dynamic, please!</h1>
 
-<p>We've seen how we can use JavaScript to move content around on the
+<p>We’ve seen how we can use JavaScript to move content around on the
 page by changing the CSS. We can even react to the user by listening
 to events.</p>
 
 <p>But what if you want to change the order of your photos in the
-slide show? You could do it be editing the <code>&lt;img></code> tags
+slide show? You could do it by editing the <code>&lt;img></code> tags
 in the HTML, which is not a bad idea.</p>
 
 <p>We could also be very clever, and use JavaScript to rearrange
@@ -39,7 +39,7 @@ properties and methods.</p>
 <p>Visit your slide show in Chrome, and open the console.</p>
 
 <p>Remember, since we have our <span class="filename">slideshow.js</span> running, we
-have a reference to the "file role" in the variable called
+have a reference to the “film roll” in the variable called
 <code>filmroll</code>. In the console, type:</p>
 
 <pre>
@@ -54,7 +54,7 @@ value:</p>
 filmroll.innerHTML = "Remember, strings need quotes."
 </pre>
 
-<p>You can also use numbers, and do math, it you wanted:</p>
+<p>You can also use numbers, and do math, if you wanted:</p>
 
 <pre>
 filmroll.innerHTML = 4 + 3 * 111 + 1000
@@ -77,7 +77,7 @@ filmroll.innerHTML += "&lt;p>Yeah! Lots of potential.&lt;/p>"
 
 <pre>
 var address = "http://tif.ca/hello.jpg";
-var html = "&lt;img src=" + address + ">"
+var html = "&lt;img src=" + address + ">";
 filmroll.innerHTML = html;
 </pre>
 
@@ -93,7 +93,7 @@ browser as HTML.<p>
 write to it, which means we can add the new HTML to the existing
 <code>innerHTML</code> to add, rather than replace, content.</p>
 
-<p>Because we can "add" strings of text together, we can also create
+<p>Because we can “add” strings of text together, we can also create
   HTML, and then use it to set <code>innerHTML</code>.</p>
 
 <p>This technique is not the only way to add content to the document,
@@ -129,16 +129,16 @@ var html = "";
 </pre>
 
 <p>In your <span class="filename">index.html</span>, delete all the image tags that are
-inside of your "film roll" <code>&lt;div></code> (the one with
-<code>id="the-film-roll"</code>). Your
-<span class="filename">index.html</span> will look like this afterwards:</p>
+inside of your “film roll” <code>&lt;div></code> (the one with
+<code>id="the-film-roll"</code>). Your <span class="filename">index.html</span>
+will looks like this afterwards:</p>
 
 <pre>
 &lt;!doctype html>
 &lt;head>
   &lt;title>I ♥ Coding&lt;/title>
-  &lt;meta charset='utf-8'>
-  &lt;link rel="stylesheet" href="style.css" />
+  &lt;meta charset="utf-8">
+  &lt;link rel="stylesheet" href="style.css">
 &lt;/head>
 
 &lt;div class="picture-frame">
