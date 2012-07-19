@@ -27,7 +27,7 @@ there are situations where editing the content using JavaScript is a
 good idea.</p>
 
 
-<h2 class="step">Edit content to the document using JavaScript</h2>
+<h2 class="step">Edit content of the document using JavaScript</h2>
 
 <h3 class=goal>Goal</h3>
 
@@ -47,7 +47,7 @@ filmroll.innerHTML
 </pre>
 
 <p>Is the <code>innerHTML</code> property of <code>filmroll</code> a
-<em>read-only</em> value? Find out by trying to set to to some other
+<em>read-only</em> value? Find out by trying to set it to some other
 value:</p>
 
 <pre>
@@ -66,7 +66,7 @@ filmroll.innerHTML = 4 + 3 * 111 + 1000
 filmroll.innerHTML = "&lt;h1>Whoa!&lt;/h1> &lt;p>Check it out.&lt;/p>"
 </pre>
 
-<p>We call add HTML to the HTML that is already there using the
+<p>We can add HTML to the HTML that is already there using the
 <code>+=</code> operation:</p>
 
 <pre>
@@ -83,13 +83,13 @@ filmroll.innerHTML = html;
 
 <h3 class=ex>Explanation</h3>
 
-<p>One of the easiest way to create content in a web page using
+<p>One of the easiest ways to create content in a web page using
 JavaScript is to set the <code>innerHTML</code> of an element to
 something new. Since HTML is just text, you can set the
 <code>innerHTML</code> to any text and it is <em>rendered</em> by the
 browser as HTML.<p>
 
-<p>We can read the <code>innerHTML</code> of an element as well we
+<p>We can read the <code>innerHTML</code> of an element as well as
 write to it, which means we can add the new HTML to the existing
 <code>innerHTML</code> to add, rather than replace, content.</p>
 
@@ -130,8 +130,8 @@ var html = "";
 
 <p>In your <span class="filename">index.html</span>, delete all the image tags that are
 inside of your "film roll" <code>&lt;div></code> (the one with
-id="the-film-roll"). Your <span class="filename">index.html</span> will looks like this
-afterwards:</p>
+<code>id="the-film-roll"</code>). Your
+<span class="filename">index.html</span> will look like this afterwards:</p>
 
 <pre>
 &lt;!doctype html>
@@ -154,7 +154,7 @@ really all gone.</p>
 
 <p>Back in <span class="filename">slideshow.js</span>, write a <code>for</code> loop
 that iterates over the items in the <code>photos</code> array, and
-each time adds another <code>&lt;img></code> tag the <code>html</code>
+each time adds another <code>&lt;img></code> tag to the <code>html</code>
 string</p>
 
 <pre>
@@ -163,9 +163,9 @@ for (var i = 0; i &lt; photos.length; i++) {
 }
 </pre>
 
-<p>Recall that the value stored a index <code>i</code> of the array
+<p>Recall that the value stored at index <code>i</code> of the array
 <code>photos</code> is accessed like this
-<code>photos[i]</code></p>
+<code>photos[i]</code>.</p>
 
 <p>Update the loop so that each time, the value stored in
 <code>photos[i]</code> is added as the <code>src</code> attribute:</p>
@@ -199,5 +199,5 @@ to the page.</p>
 <p>Since we stored the file names in an array, we could easily change
 the order of the photos by changing the order of the array.
 
-<p>It would also be easy to just edit the HTML, but this is so much
+<p>(It would also be easy to just edit the HTML, but this is so much
 more clever, right?)<p>
