@@ -10,7 +10,7 @@
 <h1>Curriculum: page 2, preparing your slide show</h1>
 
 <p>We will learn how to build your HTML slide show, and then learn
-how to use JavaScript can make content dynamic and interactive.</p>
+how to use JavaScript to make content dynamic and interactive.</p>
 
 <p>For this project, we will create a photo slide show. You'll have
 more fun if your slide show is made from your own photos, or at least
@@ -83,7 +83,7 @@ simpler, we want them to be not too big, and not odd sizes.</p>
 <p>Save the file with the name “index.html” in your
 <span class="filename">slideshow</span> directory</p>
 
-<p>Add your photos to the HTML but adding three lines like this:</p>
+<p>Add your photos to the HTML by adding three lines like this:</p>
 
 <pre>
 &lt;img src="FILE_NAME_OF_THE_FIRST_PHOTO">
@@ -203,7 +203,7 @@ with classes "picture-frame" and "film-roll":</p>
 
 <aside>
   <p>Yesterday we saw how to access the console in Chrome: press
-  Ctrl+Shift+I on Windows or Linux, press Command+Option+J on OS X.
+  Ctrl+Shift+J on Windows or Linux, press Command+Option+J on OS X.
   You can also go to the wrench menu in the upper right corner of your
   window, and select <code>Tools</code> ▸ <code>Developer
   Tools</code>.</p>
@@ -216,18 +216,18 @@ on the arrows (▸) to look inside the
 
 <img src="inspecting-film-roll.png" class="figure">
 
-<p>Look at the right column and see that you can see CSS rules that
+<p>Look at the right column and notice that you can see CSS rules that
 are defined in your <span class="filename">style.css</span> file.</p>
 
 <p>While selecting <code>&lt;div class="film-roll"></code>, access the
-value of the <code>left</code> attribute in the right column, and change the
+value of the <code>left</code> property in the right column, and change the
 value from 0px to 50px. Then try -50px. Try using the up and down
-arrows while changing the value of the left attribute.</p>
+arrows while changing the value of the <code>left</code> property.</p>
 
 <p>Refresh the page to reset all the styles.</p>
 
 <p>Play with more CSS values in other rules on other elements. Turn
-styles them on and off using the checkboxes. What does each attribute
+styles them on and off using the checkboxes. What does each property
 do?</p>
 
 <h3 class=ex>Explanation</h3>
@@ -268,8 +268,8 @@ the element's properties in the console.</p>
 
 <h3 class=inst>Instructions</h3>
 
-<p>In your <span class="filename">index.html</span>, add the id "the-film-roll" to
-<code>&lt;div></code> with class film-roll:</p>
+<p>In your <span class="filename">index.html</span>, add the id <code>the-film-roll</code> to
+the <code>&lt;div></code> with class <code>film-roll</code>:</p>
 
 <pre>
 &lt;div class="film-roll" <strong>id="the-film-roll"</strong>>
@@ -318,16 +318,17 @@ element with an ID of our choosing.</p>
 <p>Here, we added an ID to the film roll element, and then used that
 ID to create a reference that we could control with JavaScript.</p>
 
-<p>Once we have a reference to the div with id "the-film-roll", we can
-access its properties too! Some of them (like <code>offsetLeft</code>)
-are <em>read only</em>, meaning we can't change the value. Some
-(maybe you found some) can be changed. Other properties, like
-<code>style</code> have properties themselves.</p>
+<p>Once we have a reference to the div with id <code>the-film-roll</code>,
+we can access its properties too, because it is an object of the kind we
+learned about yesterday. Some of the properties (like
+<code>offsetLeft</code>) are <em>read only</em>, meaning we can't change
+the value. Some (maybe you found some) can be changed. Other properties,
+like <code>style</code> have properties themselves.</p>
 
 <p>The <code>style</code> property allows us to control the CSS
-attributes on an element. Therefore, but creating references to an
-element (and HTML element) we can change its appearance and position
-(by setting its CSS attributes).</p>
+properties on an element. Therefore, by creating references to an
+element (an HTML element) we can change its appearance and position
+(by setting its CSS properties).</p>
 
 <p>The moment we refresh the page, we get a whole new environment and
 all of the variables we created are gone. How can we create variables
