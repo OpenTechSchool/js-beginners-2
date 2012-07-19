@@ -21,7 +21,7 @@ which is not a bad idea.</p>
 We can add and delete and edit the content of the document, just like
 we can change the CSS.</p>
 
-</p>Using JavaScript just to be clever is not a good idea for "real"
+</p>Using JavaScript just to be clever is not a good idea for “real”
 web pages. But being clever <em>is</em> a fun way to learn. Plus,
 there are situations where editing the content using JavaScript is a
 good idea.</p>
@@ -38,7 +38,7 @@ properties and methods.</p>
 
 <p>Visit your slide show in Chrome, and open the console.</p>
 
-<p>Remember, since we have our <code>slideshow.js</code> running, we
+<p>Remember, since we have our <span class="filename">slideshow.js</span> running, we
 have a reference to the "file role" in the variable called
 <code>filmroll</code>. In the console, type:</p>
 
@@ -108,8 +108,8 @@ but for today, we will only use this one.</p>
 
 <h3 class=inst>Instructions</h3>
 
-<p>In <code>slideshow.js</code>, create an array called "photos", and
-store the file names of your images:</p>
+<p>In <span class="filename">slideshow.js</span>, create an array
+called “photos”, and store the file names of your images:</p>
 
 <pre>
 var photos = [
@@ -122,15 +122,15 @@ var photos = [
 <p>Remember to use the complete file name including the file
 extension (.jpg, .gif or .png).</p>
 
-<p>Define a variable called "html" that is just an empty string:</p>
+<p>Define a variable called “html” that is just an empty string:</p>
 
 <pre>
 var html = "";
 </pre>
 
-<p>In your <code>index.html</code>, delete all the image tags that are
+<p>In your <span class="filename">index.html</span>, delete all the image tags that are
 inside of your "film roll" <code>&lt;div></code> (the one with
-id="the-film-roll"). Your <code>index.html</code> will looks like this
+id="the-film-roll"). Your <span class="filename">index.html</span> will looks like this
 afterwards:</p>
 
 <pre>
@@ -152,7 +152,7 @@ afterwards:</p>
 <p>Refresh the page in Chrome to prove to yourself that the images are
 really all gone.</p>
 
-<p>Back in <code>slideshow.js</code>, write a <code>for</code> loop
+<p>Back in <span class="filename">slideshow.js</span>, write a <code>for</code> loop
 that iterates over the items in the <code>photos</code> array, and
 each time adds another <code>&lt;img></code> tag the <code>html</code>
 string</p>

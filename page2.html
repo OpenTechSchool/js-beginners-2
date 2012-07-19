@@ -27,7 +27,7 @@ photos you like. So step one is:</p>
 <p>Create a directory for your entire project and call it
 “slideshow”</p>
 
-<p>Download three photos and save them in your <code>slideshow</code>
+<p>Download three photos and save them in your <span class="filename">slideshow</span>
 directory.
 <br>The photos must:</p>
 
@@ -60,7 +60,7 @@ simpler, we want them to be not too big, and not odd sizes.</p>
 <p>In a editor, open a new file.</p>
 
 <p>Save the file with the name “index.html” in your
-<code>slideshow</code> directory</p>
+<span class="filename">slideshow</span> directory</p>
 
 <p>Add your photos to the HTML but adding three lines like this:</p>
 
@@ -74,9 +74,9 @@ simpler, we want them to be not too big, and not odd sizes.</p>
 extension, which will be .jpg, .gif or .png.</p>
 
 <p>In Chrome, go to <code>File</code> ▸ <code>Open File…</code>, find
-your slideshow/index.html file and open it.</p>
+your <span class="filename">slideshow/index.html</span> file and open it.</p>
 
-<p>In your text editor, at the very top of the index.html file,
+<p>In your text editor, at the very top of the <span class="filename">index.html</span> file,
 before the <code>&lt;img></code> tags, add:</p>
 
 <pre>
@@ -126,9 +126,9 @@ browser will treat it in a predictable way.</p>
 <h3 class=inst>Instructions</h3>
 
 <p>In your editor, create a new file and save it with the name
-"style.css" in your <code>slideshow</code> directory.</p>
+“style.css” in your <span class="filename">slideshow</span> directory.</p>
 
-<p>In your <code>style.css</code>, add these CSS rules:</p>
+<p>In your <span class="filename">style.css</span>, add these CSS rules:</p>
 
 <pre>
 .picture-frame {
@@ -154,8 +154,8 @@ img {
 <p>Change the height and width values to match the height and width
 in pixels of your photos. There are three values you must change.</p>
 
-<p>Update your <code>index.html</code> file by adding a link to the
-"style.css" stylesheet in the head, and by wrapping your
+<p>Update your <span class="filename">index.html</span> file by adding a link to the
+<span class="filename">style.css</span> stylesheet in the head, and by wrapping your
 <code>&lt;img></code> tags in two <code>&lt;div></code> containers
 with classes "picture-frame" and "film-roll":</p>
 
@@ -188,7 +188,7 @@ with classes "picture-frame" and "film-roll":</p>
   Tools</code>.</p>
 </aside>
 
-<p>In the console, go the the left-most tab called "Elements". Click
+<p>In the console, go the the left-most tab called “Elements”. Click
 on the arrows (▸) to look inside the
 <code>&lt;body>…&lt;/body></code>. Keep exploring until you find your
 <code>&lt;img></code> tags. It will look almost like this:</p>
@@ -196,10 +196,10 @@ on the arrows (▸) to look inside the
 <img src="inspecting-film-roll.png" class="figure">
 
 <p>Look at the right column and see that you can see CSS rules that
-are defined in your <code>style.css</code> file.</p>
+are defined in your <span class="filename">style.css</span> file.</p>
 
 <p>While selecting <code>&lt;div class="film-roll"></code>, access the
-value of the "left" attribute in the right column, and change the
+value of the <code>left</code> attribute in the right column, and change the
 value from 0px to 50px. Then try -50px. Try using the up and down
 arrows while changing the value of the left attribute.</p>
 
@@ -220,7 +220,7 @@ like <code>.class-name { … }</code>, target elements with
 in completely different ways, and we can use this control to now we
 can see that CSS can also control position.</p>
 
-<p>Using this technique. we have created a "picture frame" that is
+<p>Using this technique. we have created a “picture frame” that is
 centered in the page, and has a height and width that exactly matches
 our photo size. (<code>overflow: hidden</code> is needed because
 otherwise, the contents that go outside of the frame would still be
@@ -228,7 +228,7 @@ visible.)</p>
 
 <!-- an illustration would help -->
 
-<p>Inside of the picture frame, we created "film roll" that is a long
+<p>Inside of the picture frame, we created “film roll” that is a long
 strip of all our photos. By changing the position of the film roll, we
 can make our photos slide back and forth inside the picture frame.</p>
 
@@ -247,7 +247,7 @@ the element's properties in the console.</p>
 
 <h3 class=inst>Instructions</h3>
 
-<p>In your <code>index.html</code>, add the id "the-film-roll" to
+<p>In your <span class="filename">index.html</span>, add the id "the-film-roll" to
 <code>&lt;div></code> with class film-roll:</p>
 
 <pre>
@@ -289,7 +289,7 @@ filmroll.style.left = '-100px';
 <h3 class=ex>Explanation</h3>
 
 <p>When JavaScript runs in the browser, the browser creates an
-"environment variable" called "document", which has many useful
+<em>environment variable</em> called <code>document</code>, which has many useful
 properties that we can use to access elements on the page. We can use
 the <code>getElementById</code> method to get a reference to the
 element with an ID of our choosing.</p>
@@ -322,9 +322,9 @@ with typing them in the console? There must be a way!</p>
 <h3 class=inst>Instructions</h3>
 
 <p>In your editor, create a new file and save it with the name
-"slideshow.js" in your <code>slideshow</code> directory.</p>
+“slideshow.js” in your <span class="filename">slideshow</span> directory.</p>
 
-<p>In your <code>slideshow.js</code>, add the line that creates a
+<p>In your <span class="filename">slideshow.js</span>, add the line that creates a
 reference to film roll:</p>
 
 <pre>
@@ -364,7 +364,7 @@ CSS or images. Nice!</p>
 
 <p>Yesterday we saw that <code>setInterval</code> could be used to run
 a function every n milliseconds. We can also stop the function using
-<code>clearInterval</code>. Update your <code>slideshow.js</code>
+<code>clearInterval</code>. Update your <span class="filename">slideshow.js</span>
 file to contain this code, and then refresh the browser:</p>
 
 <pre>
@@ -456,7 +456,7 @@ times.</p>
 
 <h3 class=inst>Instructions</h3>
 
-<p>Create a function called "scroll" that accepts a start position,
+<p>Create a function called “scroll” that accepts a start position,
 and an end position.</p>
 
 <pre>
@@ -468,7 +468,7 @@ function scroll(start, end) {
 <p>Move the <code>current</code> counter, your <code>move</code>
 function and <code>setInterval</code> inside of <code>scroll</code>.
 You no longer need to define start and end variables. Your
-<code>slideshow.js</code> file will look like this:</p>
+<span class="filename">slideshow.js</span> file will look like this:</p>
 
 <pre>
 var filmroll = document.getElementById('the-film-roll');
@@ -523,7 +523,7 @@ from any starting position to and ending position. Yay!</p>
 
 <h3 class=inst>Instructions</h3>
 
-<p>In <code>slideshow.js.</code>, add an "EventLister" called
+<p>In <span class="filename">slideshow.js</span>, add an <em>EventLister</em> called
 <code>handleEvent</code> to the <code>document</code> that triggers on
 a <code>keydown</code> event, like this:</p>
 
@@ -574,8 +574,8 @@ the same arrow?</p>
 
 <p>Store the current scrolling position in a variable, and after
 calling the <code>scroll</code> function, update the value of the
-current position. Always use the current position as the "start"
-position when you call the <code>scroll</code> function.</p>
+current position. Always use the current position as the <code>start</code>
+value when you call the <code>scroll</code> function.</p>
 
 <p>Try it first! but if you need help, take a peek below:</p>
 
@@ -606,9 +606,9 @@ you? Do you like it? Why or why not?</p>
 <h3 class=ex>Explanation</h3>
 
 <p>When JavaScript runs in your browser (which is all the time, unless
-you shut off JavaScript), it is always "listening" to "events", like
+you shut off JavaScript), it is always “listening” to <em>events</em>, like
 whether you type something, or move your mouse. These events have
-names like "keydown", "keyup", and "click", and are emitted by all
+names like “keydown”, “keyup”, and “click”, and are emitted by all
 kinds of elements in the <code>document</code>, and by the
 <code>document</code> itself. In this example, we are only listening
 to <code>keydown</code> events emitted by the
@@ -618,8 +618,8 @@ to <code>keydown</code> events emitted by the
 viewing the page has <em>interacted</em> with the page. We can look at
 what the person did (what they typed, or what they clicked on) and
 then we can do something. In this example, we moved the film roll to
-the left when the person pressed "Left" and we moved it right when the
-person pressed "right".</p>
+the left when the person pressed “left” and we moved it right when the
+person pressed “right”.</p>
 
 <p>By listening to <em>input</em> from the person looking at the page,
 we can allow the person to control the page.</p>
@@ -649,10 +649,10 @@ before it is finished sliding). You'll see an ugly flickering effect.
 <h3 class=ex>Explanation</h3>
 
 <p>Lots of times when we write code, we forget that our users might do
-things that don't "make sense" at first, or will try to do things we
+things that don't “make sense” at first, or will try to do things we
 didn't think of. Oops. We think our job is done, but then we find out
-our code has a bug and we have to correct it (or tell the users "Don't
-do that!" which is sort of rude).</p>
+our code has a bug and we have to correct it (or tell the users “Don't
+do that!” which is sort of rude).</p>
 
 <p>First we have to figure out that the bug exists. Then we have to
 figure out why the bug is happening. Then we have to figure out how to

@@ -61,3 +61,7 @@ img.figure {
   border: 1px solid #999;
   max-width: 95%;
 }
+
+span.filename {
+  color: hotpink;
+}
