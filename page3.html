@@ -2,15 +2,15 @@
 
 <head>
   <title>Curriculum — page 3</title>
-  <link rel=stylesheet href="http://fonts.googleapis.com/css?family=Averia+Serif+Libre:300,400">
-  <link rel=stylesheet href=style.css>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Averia+Serif+Libre:300,400">
+  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
 </head>
 
 <h1>Curriculum: page 3, moving pictures</h1>
 
-<p>You've written your HTML and CSS. We got a taste of how to use
-JavaScript to move around the content. Now, we'll learn how to
+<p>You’ve written your HTML and CSS. We got a taste of how to use
+JavaScript to move around the content. Now, we’ll learn how to
 include your program when the HTML is loaded, so we can make the
 content dynamic and interactive. </p>
 
@@ -33,7 +33,7 @@ reference to film roll:</p>
 var filmroll = document.getElementById('the-film-roll');
 </pre>
 
-<p>In your <code>index.js</code>, include this new file at the very
+<p>In your <code>index.html</code>, include this new file at the very
 <strong>end</strong>:</p>
 
 <pre>
@@ -85,8 +85,8 @@ function move() {
 var loop = setInterval(move, 40);
 </pre>
 
-<p>Why can't we use a <code>for</code> or <code>while</code> for this
-effect?</p>
+<p>Why can’t we use a <code>for</code> or <code>while</code> loop
+for this effect?</p>
 
 <p>Try to speed up the scrolling effect. There are two ways. Which one
 works better?</p>
@@ -129,7 +129,7 @@ loops.</p>
 <p>In the end, your function might look something like this:</p>
 
 <pre>
-var move = function () {
+function move() {
   filmroll.style.left = current + 'px';
 
   if (current == end)
@@ -178,7 +178,7 @@ var filmroll = document.getElementById('the-film-roll');
 function scroll(start, end) {
   var current = start;
 
-  var move = function () {
+  function move() {
     filmroll.style.left = current + 'px';
 
     if (current == end)
@@ -225,8 +225,8 @@ from any starting position to and ending position. Yay!</p>
 
 <h3 class=inst>Instructions</h3>
 
-<p>In <span class="filename">slideshow.js</span>, add an <em>EventLister</em> called
-<code>handleEvent</code> to the <code>document</code> that triggers on
+<p>In <span class="filename">slideshow.js</span>, add an <em>EventListener</em>
+called <code>handleEvent</code> to the <code>document</code> that triggers on
 a <code>keydown</code> event, like this:</p>
 
 <pre>
@@ -271,7 +271,7 @@ function backAndForth(keyCode) {
 <p>Try out this new functionality in Chrome. Remember to always
 refresh the page when you change your JavaScript code.</p>
 
-<p>Why doesn't it keep scrolling in the same direction when the press
+<p>Why doesn’t it keep scrolling in the same direction when you press
 the same arrow?</p>
 
 <p>Store the current scrolling position in a variable, and after
@@ -279,7 +279,7 @@ calling the <code>scroll</code> function, update the value of the
 current position. Always use the current position as the <code>start</code>
 value when you call the <code>scroll</code> function.</p>
 
-<p>Try it first! but if you need help, take a peek below:</p>
+<p>Try it first! But if you need help, take a peek below:</p>
 
 <pre>
 var current = 0;
@@ -287,23 +287,24 @@ var current = 0;
 function backAndForth(keyCode) {
   if (keyCode == 37) {
     scroll(current, current - 500);
-    current = current - 500;
+    current -= 500;
   }
 
   if (keyCode == 39) {
     scroll(current, current + 500);
-    current = current + 500;
+    current += 500;
   }
 }
 </pre>
 
 <p>The operator <code>+=</code> first adds the value on its right to
 the value of the variable on its left, updates the variable to the
-sum, and returns the sum. (It's just shorthand for
-<code>a = a + b</code>.) The <code>-=</code> operator works the same
-for subtraction. Use these operators to reduce the lines in your
-<code>handleEvent</code>function. Does this notation makes sense to
-you? Do you like it? Why or why not?</p>
+sum. (It's just shorthand for <code>a = a + b</code>.)</p>
+
+<p>The <code>-=</code> operator works the same for subtraction.
+Use these operators to reduce the lines in your <code>handleEvent</code>
+function. Does this notation makes sense to you? Do you like it?
+Why or why not?</p>
 
 <h3 class=ex>Explanation</h3>
 
@@ -313,8 +314,7 @@ whether you type something, or move your mouse. These events have
 names like “keydown”, “keyup”, and “click”, and are emitted by all
 kinds of elements in the <code>document</code>, and by the
 <code>document</code> itself. In this example, we are only listening
-to <code>keydown</code> events emitted by the
-<code>document</code>.</p>
+to <code>keydown</code> events emitted by the <code>document</code>.</p>
 
 <p>By listening to the events emitted, we can know when the person
 viewing the page has <em>interacted</em> with the page. We can look at
@@ -342,7 +342,7 @@ desirable.</p>
 them. Maybe you already noticed it. To recreate the bug, try pressing
 the left and right arrows faster than the film roll can slide. (So,
 start the film roll sliding, and then press either left or right again
-before it is finished sliding). You'll see an ugly flickering effect.
+before it is finished sliding). You’ll see an ugly flickering effect.
 
 <p>Do you know what is causing it? What can we do to stop it?</p>
 
@@ -351,9 +351,9 @@ before it is finished sliding). You'll see an ugly flickering effect.
 <h3 class=ex>Explanation</h3>
 
 <p>Lots of times when we write code, we forget that our users might do
-things that don't “make sense” at first, or will try to do things we
-didn't think of. Oops. We think our job is done, but then we find out
-our code has a bug and we have to correct it (or tell the users “Don't
+things that don’t “make sense” at first, or will try to do things we
+didn’t think of. Oops. We think our job is done, but then we find out
+our code has a bug and we have to correct it (or tell the users “Don’t
 do that!” which is sort of rude).</p>
 
 <p>First we have to figure out that the bug exists. Then we have to
@@ -404,7 +404,7 @@ expects?</p>
 
 <h2>Next!</h2>
 
-<p>Now that we've changed CSS, let's change the HTML too!</p>
+<p>Now that we’ve changed CSS, let’s change the HTML too!</p>
 
 
 <p><a href="page4.html">→ To the fourth page</a>.</p>
