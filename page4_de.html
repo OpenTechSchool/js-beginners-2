@@ -1,0 +1,224 @@
+<!doctype html>
+
+<head>
+  <title>Kursmaterial — Seite 4</title>
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Averia+Serif+Libre:300,400">
+  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+</head>
+
+<h1>Kursmaterial: Seite 4, mehr Dynamik, bitte!</h1>
+
+<p>
+  Wir haben nun gelernt, wie JavaScript Inhalte durch das Verändern
+  von CSS verschieben kann. Darüber hinaus können wir auch auf Aktionen
+  des Nutzers reagieren. Dies ist durch das Überwachen von Events
+  möglich.
+</p>
+
+<p>
+  Aber was ist, wenn ich die Reihenfolge der Fotos in eurer Slideshow
+  ändern möchte? ... Das könntest du durch das Editieren der
+  <code>&lt;img></code>-Tags im HTML machen. Gar keine schlechte Idee!
+</p>
+
+<p>
+  Wir könnten aber auch JavaScript benutzen, um die Fotos neu zu positionieren.
+  Dazu können wir den Inhalt des Dokumentes modifizieren
+  (etwa durch hinzufügen und löschen), so ähnlich wie wir es mit dem
+  CSS auch getan haben.
+</p>
+
+</p>
+  Doch Vorsicht: JavaScript zu benutzen, nur um clever zu sein, ist in
+  "realen" Webseiten keine gute Idee. Es kann jedoch ein guter Weg sein,
+  um neue Sachen zu lernen. Außerdem gibt es sehr wohl Situationen, in
+  welchen es Sinn macht, den Inhalt der Seite mittels JavaScript zu verändern.
+</p>
+
+<h2 class="step">Verändern des Dokumenteninhaltes mittels JavaScript</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Lerne wie man den Inhalt einer Webseite mittels JavaScript verändern kann. Nutze dazu
+  Attribute und Methoden des DOMs.</p>
+
+<h3 class=inst>Anweisungen</h3>
+
+<p>Öffne deine Slideshow in Chrome und öffne die Konsole.</p>
+
+<p>Notiz: Da wir die Datei <span class="filename">slideshow.js</span> geladen haben,
+  existiert eine Referenz zum "Film" über die Variable <code>filmroll</code>. Schreibe
+  in die Konsole folgendes:
+</p>
+
+<pre>
+filmroll.innerHTML
+</pre>
+
+<p>
+  Kann die Eigenschaft <code>innerHTML</code> der Variable <code>filmroll</code>
+  nur gelesen werden? Finde es heraus, in dem du folgendes ausprobierst:</p>
+
+<pre>
+filmroll.innerHTML = "Vergiss nicht: Strings brauchen Anführungszeichen :)"
+</pre>
+
+<p>Natürlich kannst du auch Zahlen benutzen oder Formeln schreiben... falls du willst:</p>
+
+<pre>
+filmroll.innerHTML = 4 + 3 * 111 + 1000
+</pre>
+
+<p>Versuch doch mal einen String mit HTML:</p>
+
+<pre>
+filmroll.innerHTML = "&lt;h1>Whoa!&lt;/h1> &lt;p>Was passiert jetzt?&lt;/p>"
+</pre>
+
+<p>Wir können auch HTML zum bestehenden HTML hinzufügen! Dazu kann der Operator
+<code>+=</code> benutzt werden:</p>
+
+<pre>
+filmroll.innerHTML += "&lt;p>Yeah! Ich sehe Potenzial!&lt;/p>"
+</pre>
+
+<p>Versuche doch mal das:</p>
+
+<pre>
+var address = "http://tif.ca/hello.jpg";
+var html = "&lt;img src=" + address + ">";
+filmroll.innerHTML = html;
+</pre>
+
+<h3 class="ex">Erklärung</h3>
+
+<p>
+  Einer der leichtesten Wege um Inhalt zu einer Webseite hinzuzufügen,
+  ist die Nutzung der Eigenschaft <code>innerHTML</code>. Diese existiert auf
+  jedem DOM-Element. Da HTML nur Text ist, kannst du mittels <code>innerHTML</code>
+  jeden denkbaren Text setzen. Der Browser wird diesen dann <em>rendern</em>
+<p>
+
+<p>
+  Wir können <code>innerHTML</code> sowohl zum Lesen des bestehenden Inhalts
+  als auch zum Verändern dieses benutzen. Dabei spielt es keine Rolle,
+  ob du den Inhalt löschst, ersetzt oder erweiterst. Alles ist möglich!
+</p>
+
+<p>
+  Da wir bereits gelernt haben, wie man Strings "addiert", können
+  wir auch HTML erstellen und dieses dann durch setzen von <code>innerHTML</code>
+  ausgeben.
+</p>
+
+<p>
+  Dies ist zwar nicht die einzige Möglichkeit neuen Inhalt zum Dokument hinzuzufügen,
+  heute werden wir diese jedoch ausschließlich benutzen.
+</p>
+
+
+<h2 class="step">Erstelle das HTML des Filmes mit JavaScript</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Baue das HTML auf Grundlage eines Arrays mit Strings.</p>
+
+<h3 class=inst>Anweisungen</h3>
+
+<p>Erstelle in <span class="filename">slideshow.js</span> ein Array
+mit dem Namen "photos" und speichere die Namen der Bilder darin:</p>
+
+<pre>
+var photos = [
+  "FILE_NAME_OF_THE_FIRST_PHOTO",
+  "FILE_NAME_OF_THE_SECOND_PHOTO",
+  "FILE_NAME_OF_THE_THIRD_PHOTO"
+];
+</pre>
+
+<p>Benutze die kompletten Dateinamen inkl. Dateierweiterung (.jpg, .gif or .png).</p>
+
+<p>Definiere eine Variable mit dem Namen <code>html</code> und weise ihr einen leeren
+  String zu:</p>
+
+<pre>
+var html = "";
+</pre>
+
+<p>
+  Gehe nun in die Datei <span class="filename">index.html</span> und lösche alle Bilder-Tags aus dem Film-<code>&lt;div></code> (das mit <code>id="the-film-roll"</code>) heraus.
+  Deine <span class="filename">index.html</span> sollte nun so aussehen:
+</p>
+
+<pre>
+&lt;!doctype html>
+&lt;head>
+  &lt;title>I ♥ Coding&lt;/title>
+  &lt;meta charset="utf-8">
+  &lt;link rel="stylesheet" href="style.css">
+&lt;/head>
+
+&lt;div class="picture-frame">
+  &lt;div class="film-roll" id="the-film-roll">
+  &lt;/div>
+&lt;/div>
+
+&lt;script src="slideshow.js">&lt;/script>
+</pre>
+
+<p>
+  Lade die Seite in Chrome um sicherzustellen, dass alle Bilder verschwunden sind.
+</p>
+
+<p>
+  Gehe nun zurück in die <span class="filename">slideshow.js</span> und schreibe dort eine <code>for</code>-Schleife, welche über das <code>photos</code>-Array iteriert und
+  jedes mal einen <code>&lt;img></code>-Tag zur <code>html</code>-Variable hinzufügt.</p>
+
+<pre>
+for (var i = 0; i &lt; photos.length; i++) {
+  html += "&lt;img>";
+}
+</pre>
+
+<p>Recall that the value stored at index <code>i</code> of the array
+<code>photos</code> is accessed like this
+<code>photos[i]</code>.</p>
+
+<p>Update the loop so that each time, the value stored in
+<code>photos[i]</code> is added as the <code>src</code> attribute:</p>
+
+<pre>
+for (var i = 0; i &lt; photos.length; i++) {
+  html += "&lt;img <strong>src=" + photos[i] + "</strong>>";
+}
+</pre>
+
+<p>Setze nun das <code>innerHTML</code> des <code>Films</code> (filmroll) auf
+<code>html</code>:</p>
+
+<pre>
+filmroll.innerHTML = html;
+</pre>
+
+<p> Lade die Seite in Chrome neu. Das Scrolling sollte immer noch funktionieren!</p>
+
+<p>
+  Du kannst jetzt die Fotos umsortieren: Platziere das zweite Foto an die erste Stelle.
+  Dazu muss lediglich die Sortierung im <code>photos</code>-Array angepasst werden.
+</p>
+
+<h3 class=ex>Erklärung</h3>
+
+<p>
+  Yeah! Wir haben die Namen der Bilder in einem Array gespeichert und auf
+  dessen Grundlage das HTML für unsere Bilder erstellt. Durch das Aktualisieren
+  des <code>innerHTML</code>s wurden die Fotos letztlich im Browser dargestellt.
+</p>
+
+<p>
+  Da wir die Dateinamen in einem Array gespeichert haben, war es sehr einfach die
+  Sortierung der Bilder zu ändern.
+</p>
+
+<p>(OK... Es wäre auch im HTML sehr einfach gewesen, aber ist das nicht viel spannender gewesen?)<p>
