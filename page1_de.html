@@ -1,0 +1,163 @@
+<!doctype html>
+
+<head>
+  <title>Kursmaterial: Seite 1</title>
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Averia+Serif+Libre:300,400">
+  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+</head>
+
+<h1>Kursmaterial: Seite 1, HTML &amp; CSS</h1>
+
+<p>Wir werden lernen, wie Webseiten aufgebaut sind und wie das Ausssehen des
+Inhalts verändert wird.</p>
+
+<h2 class="step">Quelltext betrachten</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Verstehen wie Inhalte im Web als reines HTML aussehen.</p>
+
+<h3 class=inst>Anweisungen</h3>
+
+<p>Schau dir den Quelltext dieser Seite an. Eine Möglichkeit, dies zu tun,
+ist ein Rechtklick irgendwo in das Browserfenster. Wähle dann
+„Seitenquelltext anzeigen“.</p>
+
+<p>Du siehst nun den HTML-Quelltext dieser Seite. Lies ihn.</p>
+
+<!-- This is a comment. It is not displayed. -->
+
+<h3 class=ex>Erklärung</h3>
+
+<p>Webseiten werden als reiner Text geschrieben, ohne jegliche Formatierung.
+Kein fetter oder kursiver Text, keine Farben, Schriften oder Layout.
+(Als du dir den Quelltext gerade angesehen hast, hast du zwar Farben gesehen,
+aber nur weil der Browser das HTML versteht und es entsprechend
+präsentiert.)</p>
+
+<p>Der Text in spitzen Klammern (<em>Tags</em>) enthält Meta-Informationen
+über die Struktur des Inhalts. P zum Beispiel steht für Paragraph (Absatz).
+Wir schreiben den Inhalt zwischen ein Tag-Paar um festzulegen, worum es sich bei
+dem Inhalt handelt, und um zu bestimmen wie er dargestellt wird.</p>
+
+<p>Es gibt Start-Tags wie <code>&lt;p></code> und End-Tags wie
+<code>&lt;/p></code>. Einige Tags umschließen nichts anderes und werden
+daher <em>leere Elemente</em> genannt. Um beispielsweise ein Bild einzubinden,
+nutzen wir den <code>&lt;img></code>-Tag zusammen mit einem
+<code>src</code>-Attribut, das die Adresse der Bilddatei angibt.</p>
+
+<img src=http://amish-geeks.de/Khark/lolcat.jpg>
+
+<p>Diese Seite besitzt auch einen <code>&lt;head></code>-Bereich, in dem
+Metainformationen über die gesamte Seite angegeben sind. Dadurch weiß der
+Browser, wie der Titel der Seite lautet. Du wirst dort auch die folgende Zeile
+finden:</p>
+
+<pre>&lt;link rel="stylesheet" href="style.css"></pre>
+
+<p>Diese Zeile besagt, dass ein externes <em>Stylesheet</em> angewendet werden
+soll. Ein Stylesheet ist die Stelle, wo wir das Aussehen des HTMLs steuern.
+Aber lasst uns das erst einmal für einen Moment vergessen.</p>
+
+
+<h2 class="step">HTML ansehen, das kein Stylesheet besitzt</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Verstehen, dass HTML eine Bedeutung hat noch bevor wir das Aussehen
+definieren.</p>
+
+<h3 class=inst>Anweisungen</h3>
+
+<p>Öffne die <a href="nocss_de.html" target="_blank">Beispielseite</a>,
+die noch kein Stylesheet besitzt.</p>
+
+<p>Schau dir den Quelltext der Beispielseite an. Lies ihn.</p>
+
+<h3 class=ex>Erklärung</h3>
+
+<p>Nirgendwo in dieser HTML-Seite haben wir festgelegt, wie groß die
+Überschrift dargestellt wird, dass der Text zwischen
+<code>&lt;strong></code>-Tags fett ist, dass <code>&lt;em></code> kursiv sein
+soll oder dass es einen Abstand vor und nach <code>&lt;p></code>-Tags gibt.</p>
+
+<p>Diese Tags haben eine <em>Bedeutung</em> und der Browser stellt sie in einer
+Weise dar, die den meisten Menschen beim Lesen einleuchtet. Das ist schön und
+gut, aber wäre es nicht toll, die Schriftart, die Farbe, die Position und
+VIELES mehr hinsichtlich des Darstellung wählen zu können? Nun, das ist möglich!
+Wir können das mit in einem Stylesheet erreichen.</p>
+
+<h2 class="step">HTML ansehen, das ein Styleshet besitzt</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Verstehen wie das Aussehen der Inhalte auf Webseiten festgelegt wird.</p>
+
+<h3 class=inst>Anweisungen</h3>
+
+<p>Öffne die <a href="hascss_de.html" target="_blank">Beispielseite</a>, mit
+der ein Stylesheet verknüft ist.</p>
+
+<p>Schau dir den Quelltext der Beispielseite an. Lies ihn.</p>
+
+<p>Öffne das <a href="style.css" target="_blank">externe Stylesheet</a>
+der Beispielseite. Lies es.</p>
+
+<h3 class=ex>Erklärung</h3>
+
+<p>Stylesheets sind eine Sammlung von <em>Regeln</em>. Jede Regel besagt, für
+welchen Inhalt die Regel gilt und wie dieser Inhalt aussehen soll. Die
+Sprache, in der wir diese Regeln schreiben, nennt sich <em>CSS</em>. CSS
+lässt die HTML-Inhalte so aussehen, wie <strong>wir</strong> es wollen.</p>
+
+<p>Dies ist eine von den CSS-Regeln:</p>
+
+<pre>
+p.intro {
+  margin: 0;
+  padding: 20px;
+  background-color: lightgrey;
+  font-size: 20px;
+  line-height: 1.3;
+}
+</pre>
+
+<p>Diese Regel besagt „Absätze der Einleitung haben keine Abstände um sie
+herum, einen Innenabstand von 20 Pixeln an allen Seiten, und einen hellgrauen
+Hintergrund. Der Text darin ist 20 Pixel groß, und Zeilen sind 1,3-mal so groß
+wie der Text selbst.“</p>
+
+<p>Wenn sich zwei unterschiedliche Regeln auf denselben Inhalt beziehen, so
+werden beide Regeln angewandt, aber die zuletzt definierte gewinnt den
+Streit.</p>
+
+<pre>
+em {
+  font-style: normal;
+  background-color: orange;
+}
+em {
+  background-color: pink;
+}
+</pre>
+
+<p>Die erste Regel legt fest, dass alle Inhalte in <code>&lt;em></code>-Tags
+normal formatiert sein sollen (anstatt wie üblich kursiv), und dass sie einen
+orangenen Hintergrund haben, wie <em style="font-style: normal;
+background-color: orange;">dies hier.</em> Die zweite Regel hingegen sagt
+nichts über die Schriftformatierung, legt jedoch fest, dass der Hintergrund
+pink sein soll. Dies sieht dann <em style="background-color: pink;">so
+aus</em>.</p>
+
+<p>Wenn die beiden Regeln in dieser Reihenfolge stehen, so formatiert die
+erste die Schrift, während die zweite hinsichtlich der Farbe gewinnt. Damit
+sieht das Resultat <em style="font-style: normal; background-color: pink;">
+so aus</em>.</p>
+
+<h2>Mehr JavaScript, bitte!</h2>
+
+<p>Es gäbe viel zu lernen über HTML und CSS, aber hoffentlich ist das genug der
+Einführung, um unsere magische Kraft anzuwenden: JavaScript!</p>
+
+<p><a href="page2-de.html">→ Zur zweiten Seite</a>.</p>
