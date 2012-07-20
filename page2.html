@@ -162,9 +162,9 @@ browser will treat it in a predictable way.</p>
 
 .filmroll {
   width: 1500px; /* 3 times width of one image */
-  position: absolute;
   left: 0px;
   top: 0px;
+  position: absolute;
 }
 
 img {
@@ -238,22 +238,49 @@ like <code>.class-name { … }</code>, target elements with
 <code>class-name</code> as their class attribute.</p>
 
 <p>By using class names, we can control two <code>&lt;div></code> tags
-in completely different ways, and we can use this control to now we
-can see that CSS can also control position.</p>
+in completely different ways, and we can also use this control to position
+the elements.</p>
 
-<ins>TODO something seems to be missing here</ins>
+<p>Using some advanced techniques for positioning elements, we have
+created a “picture frame” that has a height and width that exactly
+match our photo size:</p>
 
-<p>Using this technique, we have created a “picture frame” that is
-centered in the page, and has a height and width that exactly matches
-our photo size. (<code>overflow: hidden</code> is needed because
-otherwise, the contents that go outside of the frame would still be
-visible.)</p>
+<pre>
+.picture-frame {
+  <strong>height: 334px;</strong>
+  <strong>width: 500px;</strong>
+  …
+}
+</pre>
+
+<p>Inside of the picture frame, we created a “film roll” that is a long
+strip of all our photos:</p>
+
+<pre>
+.film-roll {
+  <strong>width: 1500px;</strong>
+  left: 0px;
+  …
+}
+</pre>
+
+<p>By changing the position (by setting the <code>left</code> property)
+of the film roll, we can make our photos slide back and forth inside
+the picture frame. The film roll is set to start at position “0”.
+(That is what is meant by <code>left: 0px;</code></p>
 
 <!-- an illustration would help -->
 
-<p>Inside of the picture frame, we created a “film roll” that is a long
-strip of all our photos. By changing the position of the film roll, we
-can make our photos slide back and forth inside the picture frame.</p>
+<aside>
+<p>Nerdy details: CSS positioning is an advanced topic. Hopefully,
+it is enough to say:</p>
+<ul>
+  <li><code>margin: 50px auto;</code> makes the frame horizontally centered</li>
+  <li><code>overflow: hidden;</code> hide contents that don’t fit inside the frame</li>
+  <li><code>position: relative;</code> allows us to have a frame of reference to position any items inside</li>
+  <li><code>position: absolute;</code> allows us to set the position</li>
+</ul>
+</aside>
 
 <p>We can adjust the CSS in the stylesheet, and we can adjust the CSS
 by hand in the Developer Tools, but (so exciting!) we also adjust the
