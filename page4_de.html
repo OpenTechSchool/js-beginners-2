@@ -17,8 +17,8 @@
 </p>
 
 <p>
-  Aber was ist, wenn ich die Reihenfolge der Fotos in eurer Slideshow
-  ändern möchte? ... Das könntest du durch das Editieren der
+  Aber was ist, wenn die Reihenfolge der Fotos in unserer Slideshow
+  geändert werden soll? ... Das könntest du durch das Editieren der
   <code>&lt;img></code>-Tags im HTML machen. Gar keine schlechte Idee!
 </p>
 
@@ -40,14 +40,14 @@
 
 <h3 class=goal>Ziel</h3>
 
-<p>Lerne wie man den Inhalt einer Webseite mittels JavaScript verändern kann. Nutze dazu
+<p>Lernen wie man den Inhalt einer Webseite mittels JavaScript verändern kann. Nutze dazu
   Attribute und Methoden des DOMs.</p>
 
 <h3 class=inst>Anweisungen</h3>
 
 <p>Öffne deine Slideshow in Chrome und öffne die Konsole.</p>
 
-<p>Notiz: Da wir die Datei <span class="filename">slideshow.js</span> geladen haben,
+<p>Hinweis: Da wir die Datei <span class="filename">slideshow.js</span> geladen haben,
   existiert eine Referenz zum "Film" über die Variable <code>filmroll</code>. Schreibe
   in die Konsole folgendes:
 </p>
@@ -70,7 +70,7 @@ filmroll.innerHTML = "Vergiss nicht: Strings brauchen Anführungszeichen :)"
 filmroll.innerHTML = 4 + 3 * 111 + 1000
 </pre>
 
-<p>Versuch doch mal einen String mit HTML:</p>
+<p>Versuch doch mal einen String (Zeichenkette) mit HTML:</p>
 
 <pre>
 filmroll.innerHTML = "&lt;h1>Whoa!&lt;/h1> &lt;p>Was passiert jetzt?&lt;/p>"
@@ -97,12 +97,12 @@ filmroll.innerHTML = html;
   Einer der leichtesten Wege um Inhalt zu einer Webseite hinzuzufügen,
   ist die Nutzung der Eigenschaft <code>innerHTML</code>. Diese existiert auf
   jedem DOM-Element. Da HTML nur Text ist, kannst du mittels <code>innerHTML</code>
-  jeden denkbaren Text setzen. Der Browser wird diesen dann <em>rendern</em>
+  jeden denkbaren Text setzen. Der Browser wird diesen dann <em>rendern</em>.
 <p>
 
 <p>
   Wir können <code>innerHTML</code> sowohl zum Lesen des bestehenden Inhalts
-  als auch zum Verändern dieses benutzen. Dabei spielt es keine Rolle,
+  als auch zum Verändern des Inhalts benutzen. Dabei spielt es keine Rolle,
   ob du den Inhalt löschst, ersetzt oder erweiterst. Alles ist möglich!
 </p>
 
@@ -127,7 +127,7 @@ filmroll.innerHTML = html;
 <h3 class=inst>Anweisungen</h3>
 
 <p>Erstelle in <span class="filename">slideshow.js</span> ein Array
-mit dem Namen "photos" und speichere die Namen der Bilder darin:</p>
+mit dem Namen „photos“ und speichere die Namen der Bilder darin:</p>
 
 <pre>
 var photos = [
@@ -213,7 +213,7 @@ filmroll.innerHTML = html;
 <p>
   Yeah! Wir haben die Namen der Bilder in einem Array gespeichert und auf
   dessen Grundlage das HTML für unsere Bilder erstellt. Durch das Aktualisieren
-  des <code>innerHTML</code>s wurden die Fotos letztlich im Browser dargestellt.
+  von <code>innerHTML</code> wurden die Fotos letztlich im Browser dargestellt.
 </p>
 
 <p>
