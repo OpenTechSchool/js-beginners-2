@@ -1,0 +1,424 @@
+<!doctype html>
+
+<head>
+  <title>Curriculum — Seite 3</title>
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Averia+Serif+Libre:300,400">
+  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+</head>
+
+<h1>Curriculum: Seite 3, Bewegte Bilder</h1>
+
+<p>Du hast dein eigenes HTML und CSS geschrieben. Wir haben gesehen,
+dass man JavaScript benutzen kann um Inhalte auf der Seite zu bewegen.
+Jetzt lernen wir, wie Programme direkt mit dem HTML geladen werden
+können, um unsere Seite dynamisch und interaktiv zu machen.</p>
+
+<h2 class="step">Eine JavaScript-Datei einbinden</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Verstehen, wie eine JavaScript-Umgebung eingerichtet werden kann</p>
+
+<h3 class=inst>Anweisungen</h3>
+
+<p>Erstelle in deinem Editor eine Datei mit dem Namen „slideshow.js“
+in deinem <span class="filename">slideshow</span>-Verzeichnis.</p>
+
+<p>Füge dann in <span class="filename">slideshow.js</span> die Zeile
+hinzu, die die Referenz auf den Film erzeugt:</p>
+
+<pre>
+var filmroll = document.getElementById('the-film-roll');
+</pre>
+
+<p>Binde die neue Datei am <strong>Ende</strong> von
+<code>index.html</code> ein:</p>
+
+<pre>
+&lt;script src="slideshow.js">&lt;/script>
+</pre>
+
+<p>Wechsele in den Browser und lade die Seite neu. Gib folgendes in die
+Konsole ein:</p>
+
+<pre>
+filmroll.style.left = '-100px';
+</pre>
+
+
+<h3 class=ex>Erklärung</h3>
+
+<p>Halleluja! Ganz wie Bilder und Stylesheets, kann auch JavaScript-Code
+mit einer gesamten Seite geladen werden. Statt von Hand in die Konsole
+zu tippen, können wir ein Programm vorbereiten und es zusammen mit HTML,
+CSS und Bildern schicken.</p>
+
+
+<h2 class="step">Erstelle eine Funktion um den Film zu bewegen</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Die <code>setInterval</code>-Funktion für eine einfache Funktion
+verwenden</p>
+
+<h3 class=inst>Anweisungen</h3>
+
+<p>Gestern sahen wir, dass <code>setInterval</code> benutzt werden kann
+um eine Funktion alle x Millisekunden auszuführen. Wir können das
+Ausführen der Funktion auch stoppen, indem wir
+<code>clearInterval</code> verwenden. Erweitere
+<span class="filename">slideshow.js</span> um den folgenden Code und
+lade dann die Seite neu:</p>
+
+<pre>
+var filmroll = document.getElementById('the-film-roll');
+var start = 0;
+var end = 200;
+var current = start;
+
+function move() {
+  filmroll.style.left = current + 'px';
+  current = current + 1;
+  if (current > end)
+    clearInterval(loop); // This stops the loop
+}
+
+var loop = setInterval(move, 40);
+</pre>
+
+<p> Warum eignen sich <code>for</code>- und <code>while</code>-Schleifen
+nicht für diesen Effekt?</p>
+
+<p>Versuch, die Geschwindigkeit der Bewegung zu erhöhen. Es gibt zwei
+Wege. Welcher funktioniert besser?</p>
+
+<p>Ändere die Funktion <code>move</code> so, dass sie den Film
+alle 50 Millisekunden um 20 Pixel bewegt.</p>
+
+<p>Wie gehst du vor, um eine Bewegung von genau 110 Pixeln zu erzielen?
+Ändere deine Funktion so, dass sie genau zum Ende (und nicht weiter)
+läuft.</p>
+
+<p>Tipp: <code>Math.min</code> ist eine Funktion, die beliebig viele
+Zahl-Werte als Parameter annimmt und den kleinsten Wert zurück gibt.
+Probier mal das:</p>
+
+<pre>
+current = Math.min(current + 20, end);
+</pre>
+
+<p>Lass sich die Fotos nach links bewegen statt nach rechts.</p>
+
+<p>Um wieviel musst du den Film bewegen um vom ersten Foto zum zweiten
+zu gehen?</p>
+
+<p>Was passiert wenn die Breite deines Fotos kein Vielfaches von 20 ist?
+Wie kannst du das Problem umgehen?</p>
+
+<p>Ändere die Funktion <code>move</code>, so dass die Bewegungsrichtung
+nur von den Start- und Endwerten abhängt.</p>
+
+<h3 class=ex>Erklärung</h3>
+
+<p>Um zu beeinflussen, wie schnell oder langsam eine Schleife ausgeführt
+wird, können wir die Zeit zwischen den Aufrufen der Funktion ändern oder
+ändern, wie groß der Effekt ist den jeder einzelne Aufruf hat.</p>
+
+<p>Wir haben nun immer <code>setInterval</code> statt einer
+<code>while</code>- oder <code>for</code>-Schleife benutzt, um die Zeit
+zwischen den Aufrufen beeinflussen zu können, statt Tausender kleinster
+Veränderungen in Tausenden von Aufrufen zu machen.</p>
+
+<p>Am Ende könnte deine Funktion beispielsweise so aussehen:</p>
+
+<pre>
+function move() {
+  filmroll.style.left = current + 'px';
+
+  if (current == end)
+    clearInterval(loop);
+
+  if (end > start) {
+    current = Math.min(current + 20, end);
+  } else {
+    current = Math.max(current - 20, end);
+  }
+}
+</pre>
+
+<p>Mit den Funktionen <code>Math.min</code> und <code>Max.max</code>
+können wir sicher stellen, dass der Wert von <code>current</code> nie
+den Wert von <code>end</code> überschreitet. Dabei können wir den Wert
+von <code>current</code> entweder kleiner oder größer halten – je nach
+Bewegungsrichtung.</p>
+
+
+<h2 class="step">Eine Animations-Funktion bauen</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Schreibe eine wiederverwendbare Animations-Funktion die mehrfach
+ausgeführt werden kann.</p>
+
+<h3 class=inst>Anweisungen</h3>
+
+<p>Schreibe eine Funktion namens <code>scroll</code> die eine
+Startposition und eine Endposition als Parameter nimmt.</p>
+
+<pre>
+function scroll(start, end) {
+  // und nun?
+}
+</pre>
+
+<p>Platziere die Zählvariable <code>current</code>, deine
+<code>move</code>-Funktion und <code>setInterval</code> in deine neue
+Funktion <code>scroll</code>. Variablen für Start und Ende musst du
+nicht mehr definieren. Deine Datei
+<span class="filename">slideshow.js</span> wird etwa so aussehen:</p>
+
+<pre>
+var filmroll = document.getElementById('the-film-roll');
+
+function scroll(start, end) {
+  var current = start;
+
+  function move() {
+    filmroll.style.left = current + 'px';
+
+    if (current == end)
+      clearInterval(loop);
+
+    if (end > start) {
+      current = Math.min(current + 20, end);
+    } else {
+      current = Math.max(current - 20, end);
+    }
+  }
+
+  var loop = setInterval(move, 50);
+}
+</pre>
+
+<p>Lade die Seite im Browser neu.</p>
+
+<p>Benutze nun deine <code>scroll</code>-Funktion um zum zweiten Foto zu
+wechseln. Tippe dazu in die Konsole:</p>
+
+<pre>
+scroll(0, -500);
+</pre>
+
+<p>(… wobei statt <code>500</code> die Breite deines Fotos angegeben
+wird.)</p>
+
+<p>Benutze die <code>scroll</code>-Funktion um vom zweiten zum dritten
+Foto zu wechseln.</p>
+
+<p>Wechsele zurück zum zweiten Foto.</p>
+
+<h3 class=ex>Erklärung</h3>
+
+<p>Nun haben wir eine einzige Funktion, mit der wir von links nach
+rechts und von jeder Start- zu jeder Endposition wechseln können!</p>
+
+<h2 class="step">Auf das <code>keydown</code>-Event reagieren</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Sehen, wie wir den Nutzer die Slideshow bedienen lassen können</p>
+
+<h3 class=inst>Anweisungen</h3>
+
+<p>Füge in <span class="filename">slideshow.js</span> einen
+<em>Event-Listener</em> namens <code>handleEvent</code> für das
+<code>document</code>-Objekt hinzu. Der Event-Listener ist eine
+Funktion, die im Falle eines <code>keydown</code>-Events ausgeführt
+werden soll:</p>
+
+<pre>
+function handleEvent(e) {
+  console.log(e, e.keyCode);
+}
+
+document.addEventListener('keydown', handleEvent);
+</pre>
+
+<p>Stelle sicher, dass die Developer Tools in Chrome geöffnet sind.</p>
+
+<p>Lade die Seite neu.</p>
+
+<p>Drücke Tasten auf deiner Tastatur und beobachte, was dabei in der
+Konsole ausgegeben wird.</p>
+
+<p>Was sind die <code>keyCode</code>s für die linke und rechte
+Pfeiltaste?</p>
+
+<p>Erweitere die <code>handleEvent</code>-Funktion, so dass sie eine
+Funktion aufruft, die den Film nach links bzw. rechts bewegt, wenn die
+linke oder rechte Pfeiltaste gedrückt wird:</p>
+
+<pre>
+function handleEvent(e) {
+  backAndForth(e.keyCode);
+}
+
+function backAndForth(keyCode) {
+  if (keyCode == 37)
+    scroll(500, 0);
+
+  if (keyCode == 39)
+    scroll(0, 500);
+}
+</pre>
+
+<p>(… wobei statt <code>500</code> die Breite deines Fotos angegeben
+
+<p>Teste die neue Funktion im Browser. Denke daran, die Seite immer neu
+zu laden, wenn du deinen JavaScript-Code im Editor geändert hast.</p>
+
+<p>Warum bewegt es sich nicht weiter in die selbe Richtung, wenn du die
+selbe Pfeiltaste drückst?</p>
+
+<p>Speichere die aktuelle Position in einer Variable und aktualisiere
+den Wert dieser Variable nach dem Aufrufen der
+<code>scroll</code>-Funktion. Benutze die aktuelle Position immer als
+den Wert für <code>start</code> when du die <code>scroll</code>-Funktion
+aufrufst.</p>
+
+<p>Probier es erstmal alleine! Wenn du aber Hilfe brauchst, darfst du
+hier spicken:</p>
+
+<pre>
+var current = 0;
+
+function backAndForth(keyCode) {
+  if (keyCode == 37) {
+    scroll(current, current - 500);
+    current -= 500;
+  }
+
+  if (keyCode == 39) {
+    scroll(current, current + 500);
+    current += 500;
+  }
+}
+</pre>
+
+<p>Der Operator <code>+=</code> addiert zunächst den Wert auf seiner
+rechten Seite zum Wert der Variable auf seiner linken Seite. Es
+speichert diese Summe dann in die Variable links. (Das ist einfach eine
+Kurzschreibweise für <code>a = a + b</code>.)</p>
+
+<p>Der Operator <code>-=</code> tut das selbe für Subtraktion. Mit
+diesen Operatoren kannst du den Code in deiner
+<code>handleEvent</code>-Funktion kürzer fassen. Erscheint dir diese
+Schreibweise sinnvoll? Gefällt sie dir? Warum, oder warum nicht?</p>
+
+<h3 class=ex>Erklärung</h3>
+
+<p>Wenn JavaScript in deinem Browser ausgeführt wird (also immer, außer
+es ist abgeschalten), „lauscht“ es durchgehend auf <em>Events</em>, wie
+zum Beispiel wenn du tippst oder deine Maus bewegst. Die Events haben
+Namen wie „keydown“, „keyup“, and „click“, und werden erzeugt, wenn
+irgendeines der entsprechenden Ereignisse eintritt. Sie werden dabei
+immer für das Element der Seite erzeugt, an dem sie auftreten, gelten
+aber auch für das Dokument insgesamt. Hier interessieren wir uns für die
+<code>keydown</code>-Events, die vom <code>document</code> ausgehen.</p>
+
+<p>Indem wir auf die Events lauschen, können wir reagieren, wenn die
+Person vor dem Bildschirm mit der Seite interagiert. Wir können sehen,
+was getan wurde (was getippt wurde, was geklickt wurde) und dann etwas
+entsprechendes tun. In diesem Beispiel bewegen wir den Film nach links
+wenn die Person „links“ drückt, und nach rechts wenn sie „rechts“
+drückt.</p>
+
+<p>Durch lauschen auf <em>Eingaben</em> des Besuchers können wir ihm
+erlauben, die Seite zu steuern.</p>
+
+<p>Damit kann man eine Menge machen!</p>
+
+
+<h2 class="step">Bugs finden und korrigieren</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Lernen, Events zu ignorieren, wenn eine Reaktion unerwünscht wäre</p>
+
+<h3 class=inst>Anweisungen</h3>
+
+<p>Unsere Funktionen um auf Events zu lauschen und zu animieren haben
+einen Fehler, einen <em>Bug</em>. Vielleicht hast du ihn schon bemerkt.
+Um den Bug hervorzurufen, drücke die linke und rechte Pfeiltaste
+abwechselnd und schneller als der Film sich bewegen kann. (Drücke also
+während die Bewegung noch stattfindet wieder „links“ oder „rechts“.) Du
+wirst ein unschönes Aufblitzen sehen.</p>
+
+<p>Weißt du, was den Fehler verursacht? Wie kannst du ihn verhinden?</p>
+
+<p>Versuche diesen Bug zu fixen.</p>
+
+<h3 class=ex>Erklärung</h3>
+
+<p>Wenn wir programmieren, vergessen wir leicht, dass unsere Besucher
+Dinge tun könnten, die keinen „Sinn“ machen oder die wir nicht vorher
+gesehen haben. Ohweh. Wir denken zwar, wir hätten unsere Arbeit getan,
+aber wenn wir herausfinden, dass unser Code einen Bug hat, müssen wir
+ihn beheben (oder den Nutzern sagen „Lass das!“, was sehr unhöflich
+ist.)</p>
+
+<p>Erstmal müssen wir bemerken, dass der Bug existiert. Dann müssen wir
+herausfinden, warum er existiert. Dann müssen wir herausfinden, wie wir
+ihn beseitigen können. Viele Programmierer haben Spaß am Aufspüren von
+Bugs, weil sie ein spannendes Puzzle sind.</p>
+
+<p>Hast du eine Lösung gefunden? Hier ist ein Vorschlag dafür:</p>
+
+<pre>
+<strong>var scrolling = false;</strong>
+
+function scroll(start, end) {
+  var current = start;
+
+  var move = function () {
+    filmroll.style.left = current + 'px';
+<strong>
+    if (current == end) {
+      clearInterval(loop);
+      scrolling = false;
+    }
+</strong>
+    if (end > start) {
+      current = Math.min(current + 20, end);
+    } else {
+      current = Math.max(current - 20, end);
+    }
+  }
+
+  var loop = setInterval(move, 50);
+  <strong>scrolling = true;</strong>
+}
+
+function handleEvent(e) {
+  <strong>if (!scrolling) {
+    backAndForth(e.keyCode);
+  }</strong>
+}
+</pre>
+
+<p>Wir haben eine Variable erzeugt in der wir uns merken ob sich der
+Film gerade bewegt. Falls er das tut, können wir das
+<code>keydown</code>-Event ignorieren wenn es eintritt. Vielleicht
+erwartet der Nutzer das aber gar nicht. Welche Erwartung wäre hier wohl
+vernünftig? Wie können wir den Code so ändern, dass er sich so verhält,
+wie man erwarten würde?</p>
+
+
+<h2>Weiter!</h2>
+
+<p>Jetzt wo wir Änderungen am CSS gemacht haben, wollen wir auch das
+HTML verändern!</p>
+
+
+<p><a href="page4_de.html">→ Zur vierten Seite</a>.</p>
