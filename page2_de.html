@@ -1,0 +1,389 @@
+<!doctype html>
+
+<head>
+  <title>Kursmaterial: Seite 2</title>
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Averia+Serif+Libre:300,400">
+  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+</head>
+
+<h1>Kursmaterial: Seite 2, Erstellen deiner Slideshow</h1>
+
+<p>Wir werden erfahren, wie wir eine Slideshow in HTML bauen, und anschließend
+lernen, wie wir den Inhalt mittels JavaScript dynamisch und interaktiv
+gestalten.</p>
+
+<p>Für dieses Projekt werden wir eine Slideshow aus Fotos erstellen. Du wirst
+mehr Spaß haben, wenn deine Slideshow aus deinen eigenen Fotos besteht, oder
+zumindest aus Fotos, die dir gefallen. Daher ist erste Schritt:</p>
+
+<h2 class="step">Fotos von Flickr oder Instagram herunterladen</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Suche dir ein paar schöne Fotos, um sie in deiner Slideshow zu verwenden.</p>
+
+<h3 class=inst>Anweisungen</h3>
+
+<p>Erzeuge ein neues Verzeichnis für das ganze Projekt und benenne ihn
+„slideshow“.</p>
+
+<p>Download three photos from the internet and save them in your
+<span class="filename">slideshow</span> directory.</p>
+
+<p>Lade drei Fotos aus dem Internet und speichere sie in deinem
+<span class="filename">slideshow</span>-Order.</p>
+
+<p>Die Fotos müssen:</p>
+
+<ul>
+  <li>vom Dateityp .jpg, .gif oder .png sein</li>
+  <li>eine Brete von ungefähr 500 bis 600 Pixeln haben.</li>
+  <li><strong>alle eine gleiche Pixel-Breite haben.</strong></li>
+  <li><strong>alle eine gleiche Pixel-Höhe haben.</strong></li>
+  <li>dir gut gefallen. Denn du wirst sie den ganzen Tag lang betrachten!</li>
+</ul>
+
+<p>Wenn du beim Herunterladen von Fotos Hilfe brauchst, so Frage einfach einen
+Coach.</p>
+
+<h4>Flickr verwenden</h4>
+
+<p>Klicke beim Ansehen einer Fotoseite mit der rechten Maustaste auf das Bild
+und wähle die Größe “Medium 500” oder “Medium 640”. Lade dir auf der nächsten
+Seite das Bild herunter und speichere es in deinem
+<span class="filename">slideshow</span>-Verzeichnis.</p>
+
+<h4>Instagram verwenden</h4>
+
+<p>Öffne
+<a href="http://web.stagram.com/n/DEIN_NAME" target="_blank">http://web.stagram.com/n/DEIN_NAME</a>
+und lade dir drei Fotos im Format “L” herunter. (Sie sind alle 612 Pixel breit
+und 612 Pixel hoch.)</p>
+
+
+<h4>Hast du keinen Flickr- oder Instagram-Account?</h4>
+
+<p>Dann benutze einfach diese Fotos:</p>
+
+<ul>
+  <li><a href="http://distilleryimage8.s3.amazonaws.com/24259794d05911e1abd612313810100a_7.jpg"  target="_blank">Spree bei Nacht</a></li>
+  <li><a href="http://distilleryimage11.s3.amazonaws.com/ac587510a27211e1a92a1231381b6f02_7.jpg" target="_blank">Der Himmel über dem Volkspark Friedrichshain</a></li>
+  <li><a href="http://distilleryimage2.s3.amazonaws.com/d9f9d1a0b52611e1abd612313810100a_7.jpg"  target="_blank">Der Fernsehturm im Nebel</a></li>
+</ul>
+
+<h3 class=ex>Erklärung</h3>
+
+<p>Wir werden unsere Slideshow mit nur drei Fotos bestücken. Der Einfachheit
+halber sollen sie nicht zu groß sein und ein übliches Format besitzen.</p>
+
+<h2 class="step">HTML schreiben, um die Fotos anzuzeigen</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Verstehen wie statische Inhalte angezeigt werden können durch das Schreiben von HTML.</p>
+
+<h3 class=inst>Anweisungen</h3>
+
+<p>Öffne eine neue Datei in deinem Editor.</p>
+
+<p>Speichere die Datei mit dem Namen „index.html“ in deinem
+<span class="filename">slideshow</span>-Verzeichnis.</p>
+
+<p>Binde the Fotos im HTML ein, indem du drei Zeilen wie diese hinzufügst:</p>
+
+<pre>
+&lt;img src="DATEINAME_DES_ERSTEN_FOTOS">
+&lt;img src="DATEINAME_DES_ZWEITEN_FOTOS">
+&lt;img src="DATEINAME_DES_DRITTEN_FOTOS">
+</pre>
+
+<p>Du musst den kompletten Dateinamen samt Erweiterung angeben, also
+inklusive .jpg, .gif oder .png.</p>
+
+<p>In Chrome, öffne das Menü <code>Datei</code> (oder <code>Ablage</code>) und
+wähle dann <code>Datei öffnen…</code>. Suche darin nach der Datei
+<span class="filename">slideshow/index.html</span> und öffne sie.</p>
+
+<p>Wechsle in deinen Texteditor. Füge folgendes am Anfang der Datei
+<span class="filename">index.html</span> ein, direkt vor den
+<code>&lt;img></code>-Tags:</p>
+
+<pre>
+&lt;!doctype html>
+&lt;head>
+  &lt;title>I ♥ Coding&lt;/title>
+&lt;/head>
+</pre>
+
+<p>Zurück in Chrome, lade die Datei neu und schau dir den Titel des Tabs
+an.</p>
+
+<p>Füge im Texteditor eine weitere Zeile zum Kopf (<code>&lt;head></code>)
+hinzu, welche die Zeichenkodierung UTF-8 angibt:</p>
+
+<pre>
+&lt;!doctype html>
+&lt;head>
+  &lt;title>I ♥ Coding&lt;/title>
+  <strong>&lt;meta charset="utf-8"></strong>
+&lt;/head>
+</pre>
+
+<p>Lade die Seite in Chrome neu und schaue dir erneut den Titel des Tabs an.</p>
+
+<h3 class=ex>Erklärung</h3>
+
+<p>Du hast ein bisschen HTML geschrieben und schaust es dir in deinem Browser
+an!</p>
+
+<p>Du hast auch einen Titel hinzugefügt, und eine Zeichenkodierung angegeben,
+damit Sonderzeichen korrekt dargestellt werden. (Die UTF-8-Kodierung ist nicht
+nur für Herzchen wichtig, sondern auch beispielsweise für Umlaute.)</p>
+
+<p>Die erste Zeile, die <code>doctype</code>-Deklaration, ist aus ähnlichen
+Gründen wichtig wie die Angabe der Zeichenkodierung. Diese einfache Zeile
+teilt dem Broser mit, welche Art von HTML wir schreiben, damit er es in einer
+vorhersehbaren Weise verarbeitet.</p>
+
+
+<h2 class="step">Erstelle einen Film mit deinen Fotos</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Sehen, dass CSS zum Positionieren der Inhalte verwendet werden kann.</p>
+
+<h3 class=inst>Anweisungen</h3>
+
+<p>Erzeuge in deinem Editor eine neue Datei namens „style.css“ und speichere sie
+im <span class="filename">slideshow</span>-Verzeichnis.</p>
+
+<p>Öffne die Datei <span class="filename">style.css</span> und füge folgende
+CSS-Regeln hinzu:</p>
+
+<pre>
+.picture-frame {
+  height: 344px; /* Höhe eines einzelnen Bildes */
+  width: 500px;  /* Breite eines einzelnen Bildes */
+  overflow: hidden;
+  margin: 50px auto;
+  position: relative;
+}
+
+.filmroll {
+  width: 1500px; /* Die Breite eines Bildes mal 3 */
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+img {
+  float: left;
+}
+</pre>
+
+<p>Passe die Werte für die Höhe und Breite so an, dass sie der Höhe und Breite
+deiner Fotos in Pixeln entsprechen. Du musst ingesamt drei Werte anpassen.</p>
+
+<p>Erweitere die Datei <span class="filename">index.html</span>, indem du einen
+Verweis auf das Stylesheet <span class="filename">style.css</span> in den
+<code>head</code> einfügst. Umschließe dann die drei <code>&lt;img></code>-Tags
+in zwei <code>&lt;div></code>-Container mit den Klassen „picture-frame“ und
+„film-roll“.</p>
+
+<pre>
+&lt;!doctype html>
+&lt;head>
+  &lt;title>I ♥ Coding&lt;/title>
+  &lt;meta charset="utf-8">
+  <strong>&lt;link rel="stylesheet" href="style.css"></strong>
+&lt;/head>
+
+<strong>&lt;div class="picture-frame"></strong>
+<strong>  &lt;div class="film-roll"></strong>
+    &lt;img src="…">
+    &lt;img src="…">
+    &lt;img src="…">
+<strong>  &lt;/div></strong>
+<strong>&lt;/div></strong>
+</pre>
+
+<p>Zurück im Chrome, lade die Seite neu.</p>
+
+<p>Während du in Chrome bist, öffne die Konsole.</p>
+
+<aside>
+  <p>Gestern haben wir gelernt, wie wir auf die Konsole von Chrome zugreifen:
+  Unter Windows oder Linux, drücke die Tastenkombination Ctrl+Shift+J,
+  unter Mac OS X, drücke Command+Option+J.
+  Alternativ kannst du auf das Schraubenschlüssel-Menü in der rechten oberen
+  Ecke des Fensters klicken, und darin <code>Tools</code> ▸
+  <code>Entwicklertools</code> wählen</p>
+</aside>
+
+<p>In der Konsole, gehe zum äußersten linken Tab mit dem Namen „Elements“.
+Klicke auf die Pfeile (▸), um in das Element <code>&lt;body>…&lt;/body></code>
+zu sehen. Schaue dich darin ein wenig um, bis du deine
+<code>&lt;img></code>-Tags findest. Das sieht dann ungefähr so aus:</p>
+
+<img src="inspecting-film-roll.png" class="figure">
+
+<p>Schaue dir die rechte Spalte etwas genauer an. Du wirst dort die CSS-Regeln
+vorfinden, die du in der <span class="filename">style.css</span>-Datei
+definiert hast.</p>
+
+<p>Nachdem du <code>&lt;div class="film-roll"></code> ausgewählt hast, editiere
+die <code>left</code>-Eigenschaft in der rechten Spalte. Ändere sie von 0px auf
+50px. Danach versuche den Wert -50px. Benutze die Hoch- und Runter-Taste,
+während du den Wert der <code>left</code>-Eigenschaft veränderst.</p>
+
+<p>Lade die Seite neu, um alle Formatierungen zurückzusetzen.</p>
+
+<p>Spiele mit weiteren CSS-Werten in anderen Regeln herum, die andere Elemente
+betreffen. Schalte sie an und aus mithilfe der Checkboxen. Was machen diese
+Eigenschaften, wie wirken sie sich aus?</p>
+
+<h3 class=ex>Erklärung</h3>
+
+<p>Vorher haben wir gesehen, dass eine Regel nach dem Schema
+<code>p { … }</code> Absätze formatiert. Regeln, die mit einem Punkt beginnen,
+z.B. <code>.klassenname { … }</code>, zielen auf Elemente, deren
+<code>class</code>-Attribut <code>klassenname</code> lautet.</p>
+
+<p>Mithilfe von Klassennamen können wir zwei <code>&lt;div></code>-Tags
+ganz unterschiedlich formatieren. Wie wir sehen, lässt sich auf diese Weise
+auch die Position mit CSS kontrollieren.</p>
+
+<p>Mit einer ausgeklügelten Technik zur Positionierung haben wir einen
+„Bilderrahmen“ gebaut, der auf der Seite zentriert ist. Höhe und Breite
+entsprechen genau der Größe eines Fotos:</p>
+
+<pre>
+.picture-frame {
+  <strong>height: 334px;</strong>
+  <strong>width: 500px;</strong>
+  …
+}
+</pre>
+
+<p>Innerhalb des Bilderrahmens haben wir einen „Film“ mit all unseren
+Fotos erzeugt:</p>
+
+<pre>
+.film-roll {
+  <strong>width: 1500px;</strong>
+  left: 0px;
+  …
+}
+</pre>
+
+<p>Indem wir dessen Position verändern (über die <code>left</code>-Eigenschaft),
+können wir wir zwischen den Fotos wie Dias hin- und herschalten. Der Film hat
+eine Startposition von „0“. (Das ist, was <code>left: 0px;</code> bewirkt.)</p>
+
+<!-- an illustration would help -->
+
+<aside>
+<p>Details für Nerds: CSS-Positionierung ist ein weiterführendes Thema.
+Hoffentlich reicht diese Erklärung aus:</p>
+<ul>
+  <li><code>margin: 50px auto;</code> zentriert den Rahmen horizontal</li>
+  <li><code>overflow: hidden;</code> versteckt alle Inhalte, die nicht in den Rahmen passen</li>
+  <li><code>position: relative;</code> erzeugt einen Referenzrahmen, für die Positionierung der Inhalte darin</li>
+  <li><code>position: absolute;</code> ermöglicht es, die Position zu setzen</li>
+</ul>
+</aside>
+
+<p>Wir können das CSS im Stylesheet verändern, oder wir ändern es von Hand in
+den Developer-Tools. Aber (viel spannender!) wir können CSS auch
+mithilfe von JavaScript ändern. Bist du bereit, es auszuprobieren?
+Legen wir los!</p>
+
+<!-- an illustration would help -->
+
+<h2 class="step">Erzeugen einer Referenz auf den Film</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Sehen, dass du ein HTML-Element referenzieren kannst und dir dessen
+Eigenschaften in der Konsole ansehen kannst.</p>
+
+<h3 class=inst>Anweisungen</h3>
+
+<p>In der Datei <span class="filename">index.html</span>, füge die ID
+<code>the-film-roll</code> zu dem <code>&lt;div></code>-Element hinzu, das
+bereits die Klasse <code>film-roll</code> hat:</p>
+
+<pre>
+&lt;div class="film-roll" <strong>id="the-film-roll"</strong>>
+</pre>
+
+<p>Zurück im Konsole-Tab der Developer-Tools, tippe folgendes ein:</p>
+
+<pre>
+var filmroll = document.getElementById('the-film-roll');
+</pre>
+
+<p>Dann gib folgendes nacheinander ein, Zeile für Zeile. Einige Zeilen haben
+einen unerwarteten Effekt (oder unerwartet keinen Effekt).</p>
+
+<pre>
+filmroll;
+filmroll.offsetLeft;
+filmroll.offsetLeft = -100;
+filmroll.offsetLeft;
+filmroll.style.left = '-100px';
+filmroll.offsetLeft;
+filmroll.style.top = '50px';
+</pre>
+
+<p>Versuch <code>filmroll</code> nun 700 Pixel <em>nach links</em> zu
+verschieben.</p>
+
+<p>Probiere auch die Werte von anderen Style-Eigenschaften zu ändern.</p>
+
+<p>Lade die Seite neu. Gib folgendes in die Konsole ein:</p>
+
+<pre>
+filmroll.style.left = '-100px';
+</pre>
+
+<p>Was ist nun mit unserem Freund <code>filmroll</code> passiert?</p>
+
+<h3 class=ex>Erklärung</h3>
+
+<p>Wenn JavaScript im Browser läuft, erzeugt der Browser eine
+<em>Umgebungsvariable</em> namens <code>document</code>. Diese hat viele
+nützliche Eigenschaften, mit denen wir auf die Elemente der Seite zugreifen
+können. Wir können etwa die Methode <code>getElementById</code> verwenden,
+um ums eine Referenz auf ein Element anhand einer ID unserer Wahl zu holen.</p>
+
+<p>Oben haben wir dem Element des Filmes eine ID zugewiesen, um mithilfe der ID
+eine Referenz zu erzeugen, die wir mit JavaScript kontrollieren können.</p>
+
+<p>Wenn wir erst einmal eine Referenz auf das <code>&lt;div></code> mit der ID
+<code>the-film-roll</code> haben, so können wir auch auf dessen Egenschaften
+zugreifen. Denn es handelt sich um ein Objekt, wie wir sie gestern
+kennengelernt haben. Einige der Eigenschaften (wie <code>offsetLeft</code>)
+sind <em>nur lesbar</em>, das heißt wir können ihren Wert nicht verändern.
+Andere hingegen können geändert werden, vielleicht hast du sie gefunden.
+Manche Egenschaft wie <code>style</code> haben selbst noch weitere
+Eigenschaften.</p>
+
+<p>Die <code>style</code>-Eigenschaft erlaubt es uns, die CSS-Eigenschaften
+eines Elements zu beeinflussen. Mithilfe einer Referenz auf ein HTML-Element
+können wir also sein Aussehen und seine Position verändern (indem wir die
+CSS-Eigenschaften setzen).</p>
+
+<p>In dem Moment, wo wir die Seite neu laden, bekommen wir eine komplett neue
+JavaScript-Umgebung und alle erzeugten Variablen sind verloren. Wie können wir
+also Variablen erzeugen, ohne sie jedes Mal in die Konsole zu tippen? Es muss
+einfach Weg geben!</p>
+
+<h2>Bringen wir alles zusammen</h2>
+
+<p>HTML in der Seite, CSS im Stylesheet, aber wie können wir
+JavaScript-Programme laden. Lass es uns herausfinden!</p>
+
+
+<p><a href="page3_de.html">→ Zur dritten Seite</a>.</p>
