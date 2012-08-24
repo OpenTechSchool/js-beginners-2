@@ -292,24 +292,15 @@ var current = 0;
 function backAndForth(keyCode) {
   if (keyCode == 37) {
     scroll(current, current - 500);
-    current -= 500;
+    current = current - 500;
   }
 
   if (keyCode == 39) {
     scroll(current, current + 500);
-    current += 500;
+    current = current + 500;
   }
 }
 </pre>
-
-<p>The operator <code>+=</code> first adds the value on its right to
-the value of the variable on its left, updates the variable to the
-sum. (It's just shorthand for <code>a = a + b</code>.)</p>
-
-<p>The <code>-=</code> operator works the same for subtraction.
-Use these operators to reduce the lines in your <code>handleEvent</code>
-function. Does this notation makes sense to you? Do you like it?
-Why or why not?</p>
 
 <h3 class=ex>Explanation</h3>
 

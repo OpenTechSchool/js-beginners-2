@@ -302,25 +302,15 @@ var current = 0;
 function backAndForth(keyCode) {
   if (keyCode == 37) {
     scroll(current, current - 500);
-    current -= 500;
+    current = current - 500;
   }
 
   if (keyCode == 39) {
     scroll(current, current + 500);
-    current += 500;
+    current = current + 500;
   }
 }
 </pre>
-
-<p>Der Operator <code>+=</code> addiert zunächst den Wert auf seiner
-rechten Seite zum Wert der Variable auf seiner linken Seite. Es
-speichert diese Summe dann in die Variable links. (Das ist einfach eine
-Kurzschreibweise für <code>a = a + b</code>.)</p>
-
-<p>Der Operator <code>-=</code> tut das selbe für Subtraktion. Mit
-diesen Operatoren kannst du den Code in deiner
-<code>handleEvent</code>-Funktion kürzer fassen. Erscheint dir diese
-Schreibweise sinnvoll? Gefällt sie dir? Warum, oder warum nicht?</p>
 
 <h3 class=ex>Erklärung</h3>
 
