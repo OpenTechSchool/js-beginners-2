@@ -80,8 +80,9 @@ var current = start;
 function move() {
   filmroll.style.left = current + 'px';
   current = current + 1;
-  if (current > end)
+  if (current > end) {
     clearInterval(loop); // This stops the loop
+  }
 }
 
 var loop = setInterval(move, 40);
@@ -136,8 +137,9 @@ Veränderungen in Tausenden von Aufrufen zu machen.</p>
 function move() {
   filmroll.style.left = current + 'px';
 
-  if (current == end)
+  if (current == end) {
     clearInterval(loop);
+  }
 
   if (end > start) {
     current = Math.min(current + 20, end);
@@ -187,8 +189,9 @@ function scroll(start, end) {
   function move() {
     filmroll.style.left = current + 'px';
 
-    if (current == end)
+    if (current == end) {
       clearInterval(loop);
+    }
 
     if (end > start) {
       current = Math.min(current + 20, end);
@@ -266,11 +269,13 @@ function handleEvent(e) {
 }
 
 function backAndForth(keyCode) {
-  if (keyCode == 37)
+  if (keyCode == 37) {
     scroll(500, 0);
+  }
 
-  if (keyCode == 39)
+  if (keyCode == 39) {
     scroll(0, 500);
+  }
 }
 </pre>
 
