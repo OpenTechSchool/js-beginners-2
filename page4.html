@@ -152,10 +152,11 @@ will looks like this afterwards:</p>
 <p>Refresh the page in Chrome to prove to yourself that the images are
 really all gone.</p>
 
-<p>Back in <span class="filename">slideshow.js</span>, write a <code>for</code> loop
-that iterates over the items in the <code>photos</code> array, and
+<p>Next, we'll use a <code>for</code> loop to add the images dynamically. 
+Back in <span class="filename">slideshow.js</span>, write a <code>for</code> 
+loop that iterates over the items in the <code>photos</code> array, and
 each time adds another <code>&lt;img></code> tag to the <code>html</code>
-string</p>
+string:</p>
 
 <pre>
 for (var i = 0; i &lt; photos.length; i++) {
@@ -163,9 +164,17 @@ for (var i = 0; i &lt; photos.length; i++) {
 }
 </pre>
 
-<p>Recall that the value stored at index <code>i</code> of the array
-<code>photos</code> is accessed like this
-<code>photos[i]</code>.</p>
+<p>A <code>for</code> loop is similar to a <code>while</code> loop, but 
+initializing the loop state, checking it, and updating it, are all grouped 
+together in the brackets after the keyword <code>for</code>. 
+The first part, <code>var i = 0</code>, initializes the variable used as a
+counter. The second part, <code>i &lt; photos.length</code>, checks if the 
+loop should be terminated. The last part, <code>i++</code>, increases the counter
+by one to make the loop continue.</p>
+
+<p>Now that you know how a <code>for</code> loop works, recall that the value 
+stored at index <code>i</code> of the array <code>photos</code> is accessed like 
+this: <code>photos[i]</code>.</p>
 
 <p>Update the loop so that each time, the value stored in
 <code>photos[i]</code> is added as the <code>src</code> attribute:</p>
