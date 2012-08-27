@@ -172,8 +172,12 @@ var html = "";
 </p>
 
 <p>
-  Gehe nun zurück in die <span class="filename">slideshow.js</span> und schreibe dort eine <code>for</code>-Schleife, welche über das <code>photos</code>-Array iteriert und
-  jedes mal einen <code>&lt;img></code>-Tag zur <code>html</code>-Variable hinzufügt.</p>
+  Als nächstes benutzen wir eine <code>for</code>-Schleife, um die Bilder dynamisch 
+  hinzuzufügen. Gehe zurück in die <span class="filename">slideshow.js</span> und 
+  schreibe dort eine <code>for</code>-Schleife, welche über das <code>photos</code>-Array 
+  iteriert und jedes mal einen <code>&lt;img></code>-Tag zur <code>html</code>-Variable 
+  hinzufügt:
+</p>
 
 <pre>
 for (var i = 0; i &lt; photos.length; i++) {
@@ -182,9 +186,18 @@ for (var i = 0; i &lt; photos.length; i++) {
 </pre>
 
 <p>
-  Erinnerst du dich daran, dass auf die im Array gespeicherten Werte durch
-  Nutzung des Indexes zugegriffen werden kann? Den Namen des zweiten Fotos
-  erhälst du etwa so: <code>photos[1]</code>
+  Eine <code>for</code>-Schleife funktioniert ähnlich wie eine <code>while</code>-Schleife, 
+  aber die Initialisierung, Veränderung und Überprüfung des Zählers erfolgt in einer einzelnen
+  Zeile – in den Klammern hinter dem Schlüsselwort <code>for</code>.
+  Im ersten Schritt, <code>var i = 0</code>, wird die Variable initialisiert, die als Zähler 
+  verwendet wird. Im zweiten Schritt <code>i &lt; photos.length</code>, wird dieser Zähler 
+  überprüft. Der letzte Schritt, <code>i++</code>, erhöht den Zähler um eins.
+</p>
+
+<p>
+  Nachdem wir nun wissen, wie eine <code>for</code>-Schleife funktioniert, können wir uns dem
+  Array zuwenden. Erinnerst du dich daran, dass auf die im Array gespeicherten Werte durch
+  Nutzung des Indexes zugegriffen werden kann? Den Namen des zweiten Fotoserhälst du etwa so:   <code>photos[1]</code>
 </p>
 
 <p>
