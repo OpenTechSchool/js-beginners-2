@@ -1,0 +1,23 @@
+h1 {
+  font-family:helvetica, arial, sans-serif;
+  text-align:center;
+}
+.picture-frame {
+  height: 620px; /* image height */
+  width: 500px; /* image width */
+  overflow: hidden;
+  margin: 50px auto;
+  position: relative;
+}
+
+.film-roll {
+  width: 1500px; /* 3 times width of one image */
+  left: 0px;
+  top: 0px;
+  position: absolute;
+}
+
+img {
+  max-width:500px;
+  float: left;
+}
