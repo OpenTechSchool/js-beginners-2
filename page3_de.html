@@ -405,9 +405,18 @@ function handleEvent(e) {
 
 <p>Wir haben eine Variable erzeugt in der wir uns merken ob sich der
 Film gerade bewegt. Falls er das tut, können wir das
-<code>keydown</code>-Event ignorieren wenn es eintritt. Vielleicht
-erwartet der Nutzer das aber gar nicht. Welche Erwartung wäre hier wohl
-vernünftig? Wie können wir den Code so ändern, dass er sich so verhält,
+<code>keydown</code>-Event ignorieren wenn es eintritt.</p>
+
+<p>Diese Lösung verwendet ein Ausrufungszeichen in der
+<code>if (!scrolling)</scode>-Bedingung (in der Funktion
+<code>handleEvent</code>). Das Ausrufungszeichen nennt man den
+logischen NOT-Operator in JavaScript (also „nicht“, eine Verneinung).
+Die Bedingung <code>if (!scrolling)</code> bedeutet also: falls die Variable
+<code>scrolling</code> nicht true (wahr) ist.</p>
+
+<p>Vielleicht passt diese Lösung aber gar nicht zu dem, was der Nutzer
+erwartet. Was würde der Nutzer hier wohl vernünftiger Weise erwarten?
+Wie können wir den Code so ändern, dass er sich so verhält,
 wie man erwarten würde?</p>
 
 
