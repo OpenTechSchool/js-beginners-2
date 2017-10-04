@@ -1,3 +1,9 @@
+# Curriculum — JavaScript for web pages
+
+**Please note: The curriculum is a bit outdated as it contains animations implemented with JavaScript that would rather be implemented with CSS today. It used to be part 2 (day 2) of the [JavaScript for absolute beginners workshop](https://github.com/OpenTechSchool/js-beginners-1) but is not actively being used any more.**
+
+This curriculum introduces enhancing web pages with JavaScript. You should have some very basic knowledge of programming with JavaScript like variables, loops, and functions.
+
 The purpose of the example slideshow is to introduce the following concepts:
 
 * HTML as a representation of content
